@@ -3,55 +3,55 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
 import '../../../data/models/login_model_response.dart';
-import '../../../data/repositories/login_repository.dart';
+import '../../../data/repositories/login_hive_repository.dart';
 
 part 'login_hive_event.dart';
 part 'login_hive_state.dart';
 part 'login_hive_bloc.freezed.dart';
 
 class LoginHiveBloc extends Bloc<LoginHiveEvent, LoginHiveState> {
-  final LoginRepository _loginRepository = LoginRepository();
+  final LoginHiveRepository _loginHiveRepository = LoginHiveRepository();
 
-  LoginHiveBloc() : super(_Initial()) {
+  LoginHiveBloc() : super(const _Initial()) {
     on<_OnSaveLoginData>((event, emit) async {
-      emit(LoginHiveState.loading(msg: "Loading..."));
+      emit(const LoginHiveState.loading(msg: "Loading..."));
 
       try {
-        final box = await Hive.openBox<LoginModelResponse>('loginBox');
-        await box.put('loginData', event.data);
-        emit(LoginHiveState.loginHiveLoaded(data: event.data));
+        final data = await _loginHiveRepository.saveLoginData(
+            loginModelResponse: event.data);
+
+        data.fold((l) => (LoginHiveState.loginHiveError(msg: l)),
+            (r) => LoginHiveState.loginHiveLoaded(data: r));
       } catch (e) {
         emit(LoginHiveState.loginHiveError(msg: e.toString()));
       }
     });
 
     on<_OnReadLoginData>((event, emit) async {
-      emit(LoginHiveState.loading(msg: "Loading..."));
+      emit(const LoginHiveState.loading(msg: "Loading..."));
 
       try {
-        final box = await Hive.openBox<LoginModelResponse>('loginBox');
-        final loginData = box.get('loginData');
+        final data = await _loginHiveRepository.readLoginData();
 
-        if (loginData != null) {
-          emit(LoginHiveState.loginHiveLoaded(data: loginData));
-        } else {
-          emit(LoginHiveState.loginHiveError(msg: "No login data found"));
-        }
+        data.fold(
+            (l) => (emit(const LoginHiveState.loginHiveError(
+                msg: "No user data found"))),
+            (r) => emit(LoginHiveState.loginHiveLoaded(data: r)));
       } catch (e) {
-        emit(LoginHiveState.loginHiveError(msg: "No login data found"));
+        emit(const LoginHiveState.loginHiveError(msg: "No login data found"));
       }
     });
 
     on<_OnCheckLoginStatus>((event, emit) async {
-      emit(LoginHiveState.loading(msg: "Loading..."));
+      emit(const LoginHiveState.loading(msg: "Loading..."));
 
       try {
-        final isLoggedIn = await _loginRepository.isUserLoggedIn();
+        final isLoggedIn = await _loginHiveRepository.loginCheckingStatus();
 
         if (isLoggedIn) {
-          emit(LoginHiveState.loggedIn());
+          emit(const LoginHiveState.loggedIn());
         } else {
-          emit(LoginHiveState.notLoggedIn());
+          emit(const LoginHiveState.notLoggedIn());
         }
       } catch (e) {
         emit(LoginHiveState.loginHiveError(msg: e.toString()));
@@ -59,14 +59,17 @@ class LoginHiveBloc extends Bloc<LoginHiveEvent, LoginHiveState> {
     });
 
     on<_OnDeleteLoginData>((event, emit) async {
-      emit(LoginHiveState.loading(msg: "Loading..."));
+      emit(const LoginHiveState.loading(msg: "Loading..."));
       try {
-        final box = await Hive.openBox<LoginModelResponse>('loginBox');
-        await box.delete('loginData');
+        final data = await _loginHiveRepository.deleteLoginData();
 
-        emit(LoginHiveState.notLoggedIn());
+        data.fold((l) {
+          emit(const LoginHiveState.loginHiveError(
+              msg: "Error deleting login data"));
+        }, (r) => emit(const LoginHiveState.notLoggedIn()));
       } catch (e) {
-        emit(LoginHiveState.loginHiveError(msg: "Error deleting login data $e"));
+        emit(
+            LoginHiveState.loginHiveError(msg: "Error deleting login data $e"));
       }
     });
   }

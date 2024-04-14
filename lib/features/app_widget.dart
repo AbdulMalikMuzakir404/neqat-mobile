@@ -8,7 +8,8 @@ import './login/presentation/page/login_page.dart';
 import './splashscreen/presentation/bloc/connectivity_bloc.dart';
 import './dashboard/presentation/page/dashboard_page.dart';
 import './dashboard/presentation/bloc/permission_handler_bloc.dart';
-import './maps/presentation/bloc/maps_bloc.dart';
+import './maps/presentation/bloc/maps/maps_bloc.dart';
+import './maps/presentation/bloc/maps_api/bloc/maps_api_bloc.dart';
 import './profile/presentation/page/profile_page.dart';
 import './login/presentation/bloc/login/login_bloc.dart';
 import './login/presentation/bloc/login_hive/login_hive_bloc.dart';
@@ -30,6 +31,10 @@ class AppWidget extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => MapsBloc(),
+          lazy: false,
+        ),
+        BlocProvider(
+          create: (context) => MapsApiBloc(),
           lazy: false,
         ),
         BlocProvider(

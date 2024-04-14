@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:hive/hive.dart';
 import 'package:neqat_mobile/features/login/data/models/login_model_request.dart';
 import 'package:neqat_mobile/features/login/data/models/login_model_response.dart';
 
@@ -14,6 +13,7 @@ class LoginRepository {
       {required LoginModelRequest loginModelRequest}) async {
     try {
       Response _response;
+      final LoginModelResponse _loginModelResponse;
       final loginHiveBloc = LoginHiveBloc();
 
       final _loginOption = Options(
@@ -26,10 +26,7 @@ class LoginRepository {
       _response = await _dio.post("${baseUrl}auth/login",
           data: loginModelRequest.toJson(), options: _loginOption);
 
-          print("DADANG RESPONSE : " + _response.toString());
-
-      final LoginModelResponse _loginModelResponse =
-          LoginModelResponse.fromJson(_response.data);
+      _loginModelResponse = LoginModelResponse.fromJson(_response.data);
 
       loginHiveBloc
           .add(LoginHiveEvent.onSaveLoginData(data: _loginModelResponse));
@@ -58,16 +55,6 @@ class LoginRepository {
       return left(errorMessage);
     } catch (e) {
       return left(e.toString());
-    }
-  }
-
-  Future<bool> isUserLoggedIn() async {
-    try {
-      final box = await Hive.openBox<LoginModelResponse>('loginBox');
-      final loginData = box.get('loginData');
-      return loginData != null;
-    } catch (e) {
-      throw Exception("Error checking login status");
     }
   }
 
