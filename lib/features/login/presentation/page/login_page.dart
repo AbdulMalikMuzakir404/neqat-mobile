@@ -100,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Container(
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/images/background-card-core.jpeg'),
+                    image: AssetImage('assets/images/background-card-core.png'),
                     fit: BoxFit.cover),
               ),
             ),
@@ -182,10 +182,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                 controller: _usernameController,
                                 focusNode: focusNodeUsername,
                                 textInputAction: TextInputAction.next,
+                                style: TextStyle(
+                                  color: Colors.grey.shade300,
+                                ),
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                        color: Colors.grey.shade300, width: 1),
+                                      color: Colors.grey.shade300,
+                                      width: 1,
+                                    ),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   focusedBorder: OutlineInputBorder(
@@ -193,15 +198,21 @@ class _LoginScreenState extends State<LoginScreen> {
                                         color: Colors.grey, width: 2),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
-                                  label: const Text('Username'),
+                                  label: Text(
+                                    'Username',
+                                    style: TextStyle(
+                                      color: Colors.grey.shade300,
+                                    ),
+                                  ),
                                   floatingLabelStyle: const TextStyle(
                                     color: Colors.grey,
                                   ),
                                   isDense: true,
                                   contentPadding: const EdgeInsets.all(15),
                                   suffixIcon: const Icon(
-                                      Icons.person_2_outlined,
-                                      color: Colors.black),
+                                    Icons.person_2_outlined,
+                                    color: Colors.black,
+                                  ),
                                 ),
                               ),
                             ),
@@ -215,6 +226,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 controller: _passwordController,
                                 focusNode: focusNodePassword,
                                 textInputAction: TextInputAction.send,
+                                style: TextStyle(
+                                  color: Colors.grey.shade300,
+                                ),
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -226,7 +240,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                         color: Colors.grey, width: 2),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
-                                  label: const Text('Password'),
+                                  label: Text(
+                                    'Password',
+                                    style: TextStyle(
+                                      color: Colors.grey.shade300,
+                                    ),
+                                  ),
                                   floatingLabelStyle: const TextStyle(
                                     color: Colors.grey,
                                   ),

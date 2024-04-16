@@ -57,7 +57,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
               Container(
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/images/background-card-core.jpeg'),
+                    image: AssetImage('assets/images/background-card-core.png'),
                     fit: BoxFit.cover,
                   ),
                 ),

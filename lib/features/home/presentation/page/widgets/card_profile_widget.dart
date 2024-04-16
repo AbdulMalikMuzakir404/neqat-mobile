@@ -38,7 +38,6 @@ class _CardProfileWidgetState extends State<CardProfileWidget> {
         );
       },
       builder: (context, state) {
-        print("DADANG PRINT : " + state.toString());
         return state.maybeMap(
           orElse: () {
             return const LoadingWidget();
@@ -96,13 +95,14 @@ class _CardProfileState extends State<CardProfile> {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.grey.shade700,
-                    blurRadius: 15,
+                    color: Colors.grey.shade400,
+                    blurRadius: 10,
+                    spreadRadius: 0.5,
                   ),
                 ],
                 borderRadius: BorderRadius.circular(20),
                 image: const DecorationImage(
-                  image: AssetImage('assets/images/background-card-core.jpeg'),
+                  image: AssetImage('assets/images/background-card-core.png'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -291,7 +291,7 @@ class CardLoadingProfile extends StatelessWidget {
                 ],
                 borderRadius: BorderRadius.circular(20),
                 image: const DecorationImage(
-                  image: AssetImage('assets/images/background-card-core.jpeg'),
+                  image: AssetImage('assets/images/background-card-core.png'),
                   fit: BoxFit.cover,
                 ),
               ),

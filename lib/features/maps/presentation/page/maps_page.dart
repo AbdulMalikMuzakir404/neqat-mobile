@@ -38,7 +38,8 @@ class _MapsPageState extends State<MapsPage> {
             Fluttertoast.showToast(msg: v.msg);
           },
           success: (v) {
-            Fluttertoast.showToast(msg: "Destination " + v.data.data!.setting!.schoolName!);
+            Fluttertoast.showToast(
+                msg: "Destination " + v.data.data!.setting!.schoolName!);
           },
         );
       },
@@ -82,11 +83,12 @@ class _MapsPageState extends State<MapsPage> {
                   },
                   success: (vmapsapi) {
                     return MapsLoaded(
-                        latitude: v.latitude,
-                        longitude: v.longitude,
-                        distance: v.distance,
-                        address: v.address,
-                        data: vmapsapi.data);
+                      latitude: v.latitude,
+                      longitude: v.longitude,
+                      distance: v.distance,
+                      address: v.address,
+                      data: vmapsapi.data,
+                    );
                   },
                 );
               },
@@ -168,7 +170,7 @@ class _MapsLoadedState extends State<MapsLoaded> {
               double.parse(widget.data.data!.setting!.latitude!),
               double.parse(widget.data.data!.setting!.longitude!),
             ),
-            radius: 100,
+            radius: widget.data.data!.setting!.radius!.toDouble(),
             fillColor: Colors.blue.withOpacity(0.5),
             strokeColor: Colors.blue,
             strokeWidth: 2,

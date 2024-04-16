@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CardListWidget extends StatefulWidget {
-  const CardListWidget({
-    super.key,
-    required this.bgImage,
-    required this.title,
-    required this.content,
-    required this.btnText,
-    required this.bottomSheet
-  });
+  const CardListWidget(
+      {super.key,
+      required this.bgImage,
+      required this.title,
+      required this.content,
+      required this.btnText,
+      required this.bottomSheet});
 
   final String bgImage, title, content, btnText;
   final VoidCallback? bottomSheet;
@@ -33,7 +32,8 @@ class _CardListWidgetState extends State<CardListWidget> {
         boxShadow: [
           BoxShadow(
             color: Colors.grey.shade400,
-            blurRadius: 10,
+            blurRadius: 5,
+            spreadRadius: 0.5,
           ),
         ],
         borderRadius: BorderRadius.circular(15),

@@ -20,7 +20,11 @@ class _HomePageState extends State<HomePage> {
             Container(
               child: Padding(
                 padding: const EdgeInsets.only(
-                    left: 10, right: 10, top: 10, bottom: 10),
+                  left: 10,
+                  right: 10,
+                  top: 10,
+                  bottom: 10,
+                ),
                 child: Row(
                   children: [
                     Container(
@@ -87,14 +91,15 @@ class _HomePageState extends State<HomePage> {
                       height: MediaQuery.of(context).size.height,
                       decoration: BoxDecoration(
                         borderRadius: const BorderRadius.only(
-                            topRight: Radius.circular(20),
-                            topLeft: Radius.circular(20)),
+                          topRight: Radius.circular(20),
+                          topLeft: Radius.circular(20),
+                        ),
                         color: Colors.grey.shade100,
-                        
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.grey.shade700,
-                            blurRadius: 15,
+                            color: Colors.grey.shade400,
+                            blurRadius: 10,
+                            spreadRadius: 5,
                           ),
                         ],
                       ),
@@ -136,7 +141,8 @@ class _HomePageState extends State<HomePage> {
                                         content:
                                             'scan qrcode untuk memulai kahadiranmu',
                                         btnText: 'Scan Now',
-                                        bottomSheet: () => openBottomSheetSick(),
+                                        bottomSheet: () =>
+                                            openBottomSheetSick(),
                                       ),
                                     ),
                                     // CARD CHECKOUT
@@ -149,7 +155,8 @@ class _HomePageState extends State<HomePage> {
                                         content:
                                             'scan qrcode untuk mengakhiri kahadiranmu',
                                         btnText: 'Scan Now',
-                                        bottomSheet: () => openBottomSheetPermit(),
+                                        bottomSheet: () =>
+                                            openBottomSheetPermit(),
                                       ),
                                     ),
                                   ],
@@ -169,7 +176,8 @@ class _HomePageState extends State<HomePage> {
                                         content:
                                             'ajukan permohonan untuk tidak hadir di karenakan sedang sakit',
                                         btnText: 'Apply Now',
-                                        bottomSheet: () => openBottomSheetPermit(),
+                                        bottomSheet: () =>
+                                            openBottomSheetPermit(),
                                       ),
                                     ),
                                     // CARD PERMIT
@@ -182,7 +190,8 @@ class _HomePageState extends State<HomePage> {
                                         content:
                                             'ajukan permohonan untuk tidak hadir di karenakan ada urusan pribadi',
                                         btnText: 'Apply Now',
-                                        bottomSheet: () => openBottomSheetPermit(),
+                                        bottomSheet: () =>
+                                            openBottomSheetPermit(),
                                       ),
                                     ),
                                   ],
