@@ -17,12 +17,6 @@ class SplashScreenPage extends StatefulWidget {
 
 class _SplashScreenPageState extends State<SplashScreenPage> {
   @override
-  void initState() {
-    super.initState();
-    context.read<LoginHiveBloc>().add(LoginHiveEvent.onCheckLoginStatus());
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BlocListener<ConnectivityBloc, ConnectivityState>(
       listener: (ConnectivityContext, ConnectivityState) {
@@ -30,6 +24,9 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
           orElse: () => {Fluttertoast.showToast(msg: "Internet Not Found...")},
           connected: (value) {
             Fluttertoast.showToast(msg: value.msg);
+            setState(() {
+              context.read<LoginHiveBloc>().add(LoginHiveEvent.onCheckLoginStatus());
+            });
           },
           disconnected: (value) => {Fluttertoast.showToast(msg: value.msg)},
         );

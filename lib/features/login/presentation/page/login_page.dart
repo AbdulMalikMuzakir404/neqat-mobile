@@ -134,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   shaderCallback: (bounds) {
                                     const gradient = LinearGradient(
                                         colors: [
-                                          Color.fromARGB(255, 254, 98, 194),
+                                          Color.fromARGB(255, 214, 184, 203),
                                           Color.fromARGB(255, 14, 192, 224),
                                         ],
                                         begin: Alignment.topLeft,
@@ -161,12 +161,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             const SizedBox(height: 10),
 
                             // CONTENT TEXT
-                            const SizedBox(
+                            SizedBox(
                               child: Text(
                                 'Aplikasi absensi',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  color: Colors.grey,
+                                  color: Colors.grey.shade400,
                                   fontSize: 13,
                                 ),
                               ),

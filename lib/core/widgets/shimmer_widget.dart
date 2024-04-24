@@ -38,7 +38,7 @@ class ShimmerWidget extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(radius),
-              color: Colors.grey.shade200,
+              color: Colors.grey.shade300,
             ),
           ),
         ),

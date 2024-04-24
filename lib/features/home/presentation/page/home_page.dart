@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neqat_mobile/features/home/presentation/page/widgets/bottom_sheet/attendance_bottomsheet.dart';
 import 'widgets/card_list_widget.dart';
 import 'widgets/card_profile_widget.dart';
 
@@ -142,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                                             'scan qrcode untuk memulai kahadiranmu',
                                         btnText: 'Scan Now',
                                         bottomSheet: () =>
-                                            openBottomSheetSick(),
+                                            openBottomSheetCheckin(),
                                       ),
                                     ),
                                     // CARD CHECKOUT
@@ -156,7 +157,7 @@ class _HomePageState extends State<HomePage> {
                                             'scan qrcode untuk mengakhiri kahadiranmu',
                                         btnText: 'Scan Now',
                                         bottomSheet: () =>
-                                            openBottomSheetPermit(),
+                                            openBottomSheetCheckout(),
                                       ),
                                     ),
                                   ],
@@ -177,7 +178,7 @@ class _HomePageState extends State<HomePage> {
                                             'ajukan permohonan untuk tidak hadir di karenakan sedang sakit',
                                         btnText: 'Apply Now',
                                         bottomSheet: () =>
-                                            openBottomSheetPermit(),
+                                            openBottomSheetSick(),
                                       ),
                                     ),
                                     // CARD PERMIT
@@ -212,6 +213,39 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  // BOTTOM SHEET CHECKIN
+  void openBottomSheetCheckin() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return const AttendanceBottomSheet(
+            title: "CHECKIN",
+            markerTitle: "LOCATION",
+            dateTitle: "DATE",
+            timeTitle: "TIME",
+            qrTitle: "SCAN QRCODE");
+      },
+    );
+  }
+
+  // BOTTOM SHEET CHECKOUT
+  void openBottomSheetCheckout() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return const AttendanceBottomSheet(
+            title: "CHECKOUT",
+            markerTitle: "LOCATION",
+            dateTitle: "DATE",
+            timeTitle: "TIME",
+            qrTitle: "SCAN QRCODE");
+      },
+    );
+  }
+
+  // BOTTOM SHEET SICK
   void openBottomSheetSick() {
     showModalBottomSheet(
       context: context,
@@ -238,6 +272,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  // BOTTOM SHEET PERMIT
   void openBottomSheetPermit() {
     showModalBottomSheet(
       context: context,

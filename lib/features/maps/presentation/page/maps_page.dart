@@ -52,6 +52,9 @@ class _MapsPageState extends State<MapsPage> {
             loadingMaps: (v) {
               Fluttertoast.showToast(msg: v.msg);
             },
+            errorMaps: (v) {
+              Fluttertoast.showToast(msg: v.msg);
+            },
             loadMapsLocationGranted: (v) {
               Fluttertoast.showToast(msg: v.msg);
             },

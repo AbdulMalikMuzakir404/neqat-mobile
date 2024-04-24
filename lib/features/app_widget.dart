@@ -13,6 +13,8 @@ import './maps/presentation/bloc/maps_api/bloc/maps_api_bloc.dart';
 import './profile/presentation/page/profile_page.dart';
 import './login/presentation/bloc/login/login_bloc.dart';
 import './login/presentation/bloc/login_hive/login_hive_bloc.dart';
+import './announcement/presentation/bloc/announcement_bloc.dart';
+import './ranking/presentation/bloc/ranking_bloc.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -30,6 +32,14 @@ class AppWidget extends StatelessWidget {
           lazy: false,
         ),
         BlocProvider(
+          create: (context) => LoginBloc(),
+          lazy: false,
+        ),
+        BlocProvider(
+          create: (context) => LoginHiveBloc(),
+          lazy: false,
+        ),
+        BlocProvider(
           create: (context) => MapsBloc(),
           lazy: false,
         ),
@@ -38,11 +48,11 @@ class AppWidget extends StatelessWidget {
           lazy: false,
         ),
         BlocProvider(
-          create: (context) => LoginBloc(),
+          create: (context) => AnnouncementBloc(),
           lazy: false,
         ),
         BlocProvider(
-          create: (context) => LoginHiveBloc(),
+          create: (context) => RankingBloc(),
           lazy: false,
         ),
       ],

@@ -4,19 +4,21 @@ yang bersifat konstan atau tetap
 */
 
 // about app
-const String developer = "Abdul Malik Muzakir";
-const String aboutMe = "https://www.linkedin.com/in/abdul-malik-muzakir-7b69bb224/";
+const developer = ["Abdul Malik Muzakir"];
+const String aboutMe =
+    "https://www.linkedin.com/in/abdul-malik-muzakir-7b69bb224/";
 const String label = "NeQat";
 const String appName = "NeQat";
 const String shortName = "NQ";
 const String schoolName = "SMKN 1 KATAPANG";
 const String appVersion = "2024.0.1";
+const String version = "1.0.0";
 const String copyright = "copyright © 2024 NeQat";
 int year = DateTime.now().year;
 int staticYear = 2024;
 
 // url
-const String baseUrl = "https://86e6-114-5-213-159.ngrok-free.app/api/";
+const String baseUrl = "https://7558-103-129-95-103.ngrok-free.app/api/";
 
 // hive key
 const String boxCachedDataUser = "BOX_CACHED_DATA_USER";
@@ -24,6 +26,9 @@ const String boxKeyCacheDataUser = "BOX_KEY_CACHED_DATA_USER";
 const String cachedStatus = "CACHED_STATUS";
 const String cachedToken = "CACHED_TOKEN";
 const String cachedKode = "CACHED_KODE";
+
+// topic name
+const String topicName = "NeQat";
 
 // error message
 const String dataNotFound = "Data tidak ditemukan!";

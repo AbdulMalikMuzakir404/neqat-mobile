@@ -17,6 +17,17 @@
     <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
     <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" />
 
+    <!-- Izin untuk membaca pengaturan badge counter -->
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+
+    <!-- Izin untuk mengubah pengaturan badge counter -->
+    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
+
+    <!-- PERMISSION AKSES HIDUPKAN SCREEN-->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+
     <application
         android:label="NeQat"
         android:name="${applicationName}"
@@ -47,6 +58,20 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@mipmap/notification_icon" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="com.example.neqat_mobile" />
+
+
+        <meta-data
+            android:name="firebase_messaging_auto_init_enabled"
+            android:value="false" />
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="false" />
 
         <!-- GOOGLE MAPS API KEY -->
         <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyB41Jhw-FGfiFMqMuZOF3xpzQljAbNH31A" />
