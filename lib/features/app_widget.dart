@@ -15,6 +15,9 @@ import './login/presentation/bloc/login/login_bloc.dart';
 import './login/presentation/bloc/login_hive/login_hive_bloc.dart';
 import './announcement/presentation/bloc/announcement_bloc.dart';
 import './ranking/presentation/bloc/ranking_bloc.dart';
+import './ranking/ranking_detail/presentation/page/ranking_detail_page.dart';
+import './announcement/announcement_detail/presentation/page/announcement_detail_page.dart';
+import './history/history_detail/presentation/page/history_detail_page.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -74,6 +77,18 @@ class AppWidget extends StatelessWidget {
           GetX.GetPage(
               name: "/profilepage",
               page: () => ProfilePage(),
+              transition: GetX.Transition.circularReveal),
+          GetX.GetPage(
+              name: "/historydetailpage",
+              page: () => HistoryDetailPage(),
+              transition: GetX.Transition.circularReveal),
+          GetX.GetPage(
+              name: "/announcementdetailpage",
+              page: () => AnnouncementDetailPage(),
+              transition: GetX.Transition.circularReveal),
+          GetX.GetPage(
+              name: "/rankingdetailpage",
+              page: () => RankingDetailPage(),
               transition: GetX.Transition.circularReveal),
         ],
         initialRoute: "/splashscreen",

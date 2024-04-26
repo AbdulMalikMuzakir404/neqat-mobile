@@ -70,7 +70,7 @@ class _HistoryPageState extends State<HistoryPage> {
                 ),
                 child: InkWell(
                   onTap: () {
-                    //
+                    Get.toNamed("/historydetailpage");
                   },
                   child: Row(
                     children: [

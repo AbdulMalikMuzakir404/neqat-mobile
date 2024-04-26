@@ -254,7 +254,7 @@ class _AttendanceBottomSheetState extends State<AttendanceBottomSheet> {
                                         loadMapsSuccess: (v) {
                                           return Text(
                                             v.address,
-                                            maxLines: 1,
+                                            maxLines: 2,
                                             overflow: TextOverflow.visible,
                                             style:
                                                 const TextStyle(fontSize: 12),

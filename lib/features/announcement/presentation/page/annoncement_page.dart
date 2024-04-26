@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:neqat_mobile/features/announcement/data/models/announcement_model_respose.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../bloc/announcement_bloc.dart';
@@ -131,7 +132,6 @@ class _AnnouncementPageState extends State<AnnouncementPage> {
                     ),
 
                     // CARD LIST DATA
-
                     Positioned.fill(
                       left: 0,
                       right: 0,
@@ -249,7 +249,7 @@ class _AnnouncementListState extends State<AnnouncementList> {
                 ),
                 child: InkWell(
                   onTap: () {
-                    //
+                    Get.toNamed("/announcementdetailpage");
                   },
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

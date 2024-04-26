@@ -328,7 +328,7 @@ mixin _$RankingState {
     required TResult Function() initial,
     required TResult Function(String? msg) loading,
     required TResult Function(String msg) error,
-    required TResult Function(RankingModelResponse data) success,
+    required TResult Function(RankingModelResponse data, bool isMax) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -336,7 +336,7 @@ mixin _$RankingState {
     TResult? Function()? initial,
     TResult? Function(String? msg)? loading,
     TResult? Function(String msg)? error,
-    TResult? Function(RankingModelResponse data)? success,
+    TResult? Function(RankingModelResponse data, bool isMax)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -344,7 +344,7 @@ mixin _$RankingState {
     TResult Function()? initial,
     TResult Function(String? msg)? loading,
     TResult Function(String msg)? error,
-    TResult Function(RankingModelResponse data)? success,
+    TResult Function(RankingModelResponse data, bool isMax)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -434,7 +434,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function(String? msg) loading,
     required TResult Function(String msg) error,
-    required TResult Function(RankingModelResponse data) success,
+    required TResult Function(RankingModelResponse data, bool isMax) success,
   }) {
     return initial();
   }
@@ -445,7 +445,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function(String? msg)? loading,
     TResult? Function(String msg)? error,
-    TResult? Function(RankingModelResponse data)? success,
+    TResult? Function(RankingModelResponse data, bool isMax)? success,
   }) {
     return initial?.call();
   }
@@ -456,7 +456,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function(String? msg)? loading,
     TResult Function(String msg)? error,
-    TResult Function(RankingModelResponse data)? success,
+    TResult Function(RankingModelResponse data, bool isMax)? success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -574,7 +574,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function(String? msg) loading,
     required TResult Function(String msg) error,
-    required TResult Function(RankingModelResponse data) success,
+    required TResult Function(RankingModelResponse data, bool isMax) success,
   }) {
     return loading(msg);
   }
@@ -585,7 +585,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function(String? msg)? loading,
     TResult? Function(String msg)? error,
-    TResult? Function(RankingModelResponse data)? success,
+    TResult? Function(RankingModelResponse data, bool isMax)? success,
   }) {
     return loading?.call(msg);
   }
@@ -596,7 +596,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function(String? msg)? loading,
     TResult Function(String msg)? error,
-    TResult Function(RankingModelResponse data)? success,
+    TResult Function(RankingModelResponse data, bool isMax)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -719,7 +719,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function() initial,
     required TResult Function(String? msg) loading,
     required TResult Function(String msg) error,
-    required TResult Function(RankingModelResponse data) success,
+    required TResult Function(RankingModelResponse data, bool isMax) success,
   }) {
     return error(msg);
   }
@@ -730,7 +730,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function()? initial,
     TResult? Function(String? msg)? loading,
     TResult? Function(String msg)? error,
-    TResult? Function(RankingModelResponse data)? success,
+    TResult? Function(RankingModelResponse data, bool isMax)? success,
   }) {
     return error?.call(msg);
   }
@@ -741,7 +741,7 @@ class _$ErrorImpl implements _Error {
     TResult Function()? initial,
     TResult Function(String? msg)? loading,
     TResult Function(String msg)? error,
-    TResult Function(RankingModelResponse data)? success,
+    TResult Function(RankingModelResponse data, bool isMax)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -803,7 +803,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({RankingModelResponse data});
+  $Res call({RankingModelResponse data, bool isMax});
 }
 
 /// @nodoc
@@ -818,12 +818,17 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = null,
+    Object? isMax = null,
   }) {
     return _then(_$SuccessImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as RankingModelResponse,
+      isMax: null == isMax
+          ? _value.isMax
+          : isMax // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -831,14 +836,16 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl({required this.data});
+  const _$SuccessImpl({required this.data, required this.isMax});
 
   @override
   final RankingModelResponse data;
+  @override
+  final bool isMax;
 
   @override
   String toString() {
-    return 'RankingState.success(data: $data)';
+    return 'RankingState.success(data: $data, isMax: $isMax)';
   }
 
   @override
@@ -846,11 +853,12 @@ class _$SuccessImpl implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.isMax, isMax) || other.isMax == isMax));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode => Object.hash(runtimeType, data, isMax);
 
   @JsonKey(ignore: true)
   @override
@@ -864,9 +872,9 @@ class _$SuccessImpl implements _Success {
     required TResult Function() initial,
     required TResult Function(String? msg) loading,
     required TResult Function(String msg) error,
-    required TResult Function(RankingModelResponse data) success,
+    required TResult Function(RankingModelResponse data, bool isMax) success,
   }) {
-    return success(data);
+    return success(data, isMax);
   }
 
   @override
@@ -875,9 +883,9 @@ class _$SuccessImpl implements _Success {
     TResult? Function()? initial,
     TResult? Function(String? msg)? loading,
     TResult? Function(String msg)? error,
-    TResult? Function(RankingModelResponse data)? success,
+    TResult? Function(RankingModelResponse data, bool isMax)? success,
   }) {
-    return success?.call(data);
+    return success?.call(data, isMax);
   }
 
   @override
@@ -886,11 +894,11 @@ class _$SuccessImpl implements _Success {
     TResult Function()? initial,
     TResult Function(String? msg)? loading,
     TResult Function(String msg)? error,
-    TResult Function(RankingModelResponse data)? success,
+    TResult Function(RankingModelResponse data, bool isMax)? success,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(data);
+      return success(data, isMax);
     }
     return orElse();
   }
@@ -934,10 +942,12 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements RankingState {
-  const factory _Success({required final RankingModelResponse data}) =
-      _$SuccessImpl;
+  const factory _Success(
+      {required final RankingModelResponse data,
+      required final bool isMax}) = _$SuccessImpl;
 
   RankingModelResponse get data;
+  bool get isMax;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;

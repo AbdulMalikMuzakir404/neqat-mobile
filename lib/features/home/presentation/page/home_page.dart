@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:neqat_mobile/features/home/presentation/page/widgets/bottom_sheet/attendance_bottomsheet.dart';
-import 'widgets/card_list_widget.dart';
-import 'widgets/card_profile_widget.dart';
+
+import './widgets/bottom_sheet/permit_bottomsheet.dart';
+import './widgets/card_list_widget.dart';
+import './widgets/card_profile_widget.dart';
+import './widgets/bottom_sheet/attendance_bottomsheet.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -251,23 +253,12 @@ class _HomePageState extends State<HomePage> {
       context: context,
       isScrollControlled: true,
       builder: (BuildContext context) {
-        return Container(
-          height: 200,
-          color: Colors.amber,
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                const Text('Modal BottomSheet 1'),
-                ElevatedButton(
-                  child: const Text('Close BottomSheet'),
-                  onPressed: () => Navigator.pop(context),
-                ),
-              ],
-            ),
-          ),
-        );
+        return const PermitBottomSheet(
+            title: "SICK",
+            dateTitle: "DATE",
+            timeTitle: "TIME",
+            pictureTitle: "PICTURE",
+            inputTitle: "INPUT PERMIT SICK");
       },
     );
   }
@@ -278,23 +269,12 @@ class _HomePageState extends State<HomePage> {
       context: context,
       isScrollControlled: true,
       builder: (BuildContext context) {
-        return Container(
-          height: 200,
-          color: Colors.amber,
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                const Text('Modal BottomSheet 2'),
-                ElevatedButton(
-                  child: const Text('Close BottomSheet'),
-                  onPressed: () => Navigator.pop(context),
-                ),
-              ],
-            ),
-          ),
-        );
+        return const PermitBottomSheet(
+            title: "PERMIT",
+            dateTitle: "DATE",
+            pictureTitle: "PICTURE",
+            timeTitle: "TIME",
+            inputTitle: "INPUT PERMIT");
       },
     );
   }

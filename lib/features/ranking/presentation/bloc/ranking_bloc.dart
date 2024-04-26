@@ -14,12 +14,24 @@ class RankingBloc extends Bloc<RankingEvent, RankingState> {
   RankingBloc() : super(_Initial()) {
     on<_OnGetRankingData>((event, emit) async {
       try {
+        print('EVENT PRINT: ${event.start}');
         emit(const RankingState.loading(msg: "Loading Get Data Ranking"));
 
         final _result = await _rankingRepository.getRankingData(start: event.start, limit: event.limit);
         
         _result.fold((l) => emit(RankingState.error(msg: l)),
-            (r) => emit(RankingState.success(data: r)));
+            (r) {
+              final List<Products> data = r.products != null
+                ? r.products!
+                : [];
+
+              emit(RankingState.success(
+                data: r,
+                isMax: data.isEmpty ? true : false,
+              ));
+            } 
+          );
+        
       } catch (e) {
         emit(RankingState.error(msg: e.toString()));
       }

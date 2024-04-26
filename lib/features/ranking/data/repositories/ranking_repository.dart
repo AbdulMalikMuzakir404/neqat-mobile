@@ -20,10 +20,7 @@ class RankingRepository {
       // );
 
       _response = await _dio.get(
-          "https://dummyjson.com/products?select=title,price&skip=" +
-              start.toString() +
-              "&limit=" +
-              limit.toString());
+          "https://dummyjson.com/products?select=title,price&skip=$start&limit=$limit");
 
       _rankingModelResponse = RankingModelResponse.fromJson(_response.data);
       return right(_rankingModelResponse);
