@@ -5,7 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/utils/constant.dart';
-import '../../../login/presentation/bloc/login_hive/login_hive_bloc.dart';
+import '../../../login/presentation/bloc/login/login_bloc.dart';
 import '../bloc/connectivity_bloc.dart';
 
 class SplashScreenPage extends StatefulWidget {
@@ -25,22 +25,22 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
           connected: (value) {
             Fluttertoast.showToast(msg: value.msg);
             setState(() {
-              context.read<LoginHiveBloc>().add(LoginHiveEvent.onCheckLoginStatus());
+              context.read<LoginBloc>().add(LoginEvent.onCheckLogin());
             });
           },
           disconnected: (value) => {Fluttertoast.showToast(msg: value.msg)},
         );
       },
-      child: BlocListener<LoginHiveBloc, LoginHiveState>(
+      child: BlocListener<LoginBloc, LoginState>(
         listener: (loginHiveContext, loginHiveState) {
           loginHiveState.maybeMap(
             orElse: () {},
-            loggedIn: (_) {
+            isLoginLoggedIn: (_) {
               Future.delayed(const Duration(seconds: 5)).then((_) {
                 Get.offNamed("/dashboardpage");
               });
             },
-            notLoggedIn: (v) {
+            isLoginLoggedOut: (v) {
               Future.delayed(const Duration(seconds: 5)).then((_) {
                 Get.offNamed("/loginpage");
               });
@@ -66,13 +66,11 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          child: Image.asset(
-                            'assets/logos/logo-neqat-banner-white.png',
-                            width: 200,
-                            height: 100,
-                            fit: BoxFit.contain,
-                          ),
+                        Image.asset(
+                          'assets/logos/logo-neqat-banner-white.png',
+                          width: 200,
+                          height: 100,
+                          fit: BoxFit.contain,
                         ),
                       ],
                     ),

@@ -19,44 +19,56 @@ mixin _$LoginEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() onCheckLogin,
     required TResult Function(LoginModelRequest data) onLoginRequest,
     required TResult Function() onLoginResponse,
+    required TResult Function() onLogout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function()? onCheckLogin,
     TResult? Function(LoginModelRequest data)? onLoginRequest,
     TResult? Function()? onLoginResponse,
+    TResult? Function()? onLogout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? onCheckLogin,
     TResult Function(LoginModelRequest data)? onLoginRequest,
     TResult Function()? onLoginResponse,
+    TResult Function()? onLogout,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_OnCheckLogin value) onCheckLogin,
     required TResult Function(_OnLoginRequest value) onLoginRequest,
     required TResult Function(_OnLoginResponse value) onLoginResponse,
+    required TResult Function(_OnLogout value) onLogout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_OnCheckLogin value)? onCheckLogin,
     TResult? Function(_OnLoginRequest value)? onLoginRequest,
     TResult? Function(_OnLoginResponse value)? onLoginResponse,
+    TResult? Function(_OnLogout value)? onLogout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_OnCheckLogin value)? onCheckLogin,
     TResult Function(_OnLoginRequest value)? onLoginRequest,
     TResult Function(_OnLoginResponse value)? onLoginResponse,
+    TResult Function(_OnLogout value)? onLogout,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,8 +131,10 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() onCheckLogin,
     required TResult Function(LoginModelRequest data) onLoginRequest,
     required TResult Function() onLoginResponse,
+    required TResult Function() onLogout,
   }) {
     return started();
   }
@@ -129,8 +143,10 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function()? onCheckLogin,
     TResult? Function(LoginModelRequest data)? onLoginRequest,
     TResult? Function()? onLoginResponse,
+    TResult? Function()? onLogout,
   }) {
     return started?.call();
   }
@@ -139,8 +155,10 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? onCheckLogin,
     TResult Function(LoginModelRequest data)? onLoginRequest,
     TResult Function()? onLoginResponse,
+    TResult Function()? onLogout,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -153,8 +171,10 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_OnCheckLogin value) onCheckLogin,
     required TResult Function(_OnLoginRequest value) onLoginRequest,
     required TResult Function(_OnLoginResponse value) onLoginResponse,
+    required TResult Function(_OnLogout value) onLogout,
   }) {
     return started(this);
   }
@@ -163,8 +183,10 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_OnCheckLogin value)? onCheckLogin,
     TResult? Function(_OnLoginRequest value)? onLoginRequest,
     TResult? Function(_OnLoginResponse value)? onLoginResponse,
+    TResult? Function(_OnLogout value)? onLogout,
   }) {
     return started?.call(this);
   }
@@ -173,8 +195,10 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_OnCheckLogin value)? onCheckLogin,
     TResult Function(_OnLoginRequest value)? onLoginRequest,
     TResult Function(_OnLoginResponse value)? onLoginResponse,
+    TResult Function(_OnLogout value)? onLogout,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -186,6 +210,126 @@ class _$StartedImpl implements _Started {
 
 abstract class _Started implements LoginEvent {
   const factory _Started() = _$StartedImpl;
+}
+
+/// @nodoc
+abstract class _$$OnCheckLoginImplCopyWith<$Res> {
+  factory _$$OnCheckLoginImplCopyWith(
+          _$OnCheckLoginImpl value, $Res Function(_$OnCheckLoginImpl) then) =
+      __$$OnCheckLoginImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$OnCheckLoginImplCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$OnCheckLoginImpl>
+    implements _$$OnCheckLoginImplCopyWith<$Res> {
+  __$$OnCheckLoginImplCopyWithImpl(
+      _$OnCheckLoginImpl _value, $Res Function(_$OnCheckLoginImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$OnCheckLoginImpl implements _OnCheckLogin {
+  const _$OnCheckLoginImpl();
+
+  @override
+  String toString() {
+    return 'LoginEvent.onCheckLogin()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$OnCheckLoginImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() onCheckLogin,
+    required TResult Function(LoginModelRequest data) onLoginRequest,
+    required TResult Function() onLoginResponse,
+    required TResult Function() onLogout,
+  }) {
+    return onCheckLogin();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? onCheckLogin,
+    TResult? Function(LoginModelRequest data)? onLoginRequest,
+    TResult? Function()? onLoginResponse,
+    TResult? Function()? onLogout,
+  }) {
+    return onCheckLogin?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? onCheckLogin,
+    TResult Function(LoginModelRequest data)? onLoginRequest,
+    TResult Function()? onLoginResponse,
+    TResult Function()? onLogout,
+    required TResult orElse(),
+  }) {
+    if (onCheckLogin != null) {
+      return onCheckLogin();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_OnCheckLogin value) onCheckLogin,
+    required TResult Function(_OnLoginRequest value) onLoginRequest,
+    required TResult Function(_OnLoginResponse value) onLoginResponse,
+    required TResult Function(_OnLogout value) onLogout,
+  }) {
+    return onCheckLogin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnCheckLogin value)? onCheckLogin,
+    TResult? Function(_OnLoginRequest value)? onLoginRequest,
+    TResult? Function(_OnLoginResponse value)? onLoginResponse,
+    TResult? Function(_OnLogout value)? onLogout,
+  }) {
+    return onCheckLogin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_OnCheckLogin value)? onCheckLogin,
+    TResult Function(_OnLoginRequest value)? onLoginRequest,
+    TResult Function(_OnLoginResponse value)? onLoginResponse,
+    TResult Function(_OnLogout value)? onLogout,
+    required TResult orElse(),
+  }) {
+    if (onCheckLogin != null) {
+      return onCheckLogin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnCheckLogin implements LoginEvent {
+  const factory _OnCheckLogin() = _$OnCheckLoginImpl;
 }
 
 /// @nodoc
@@ -208,10 +352,10 @@ class __$$OnLoginRequestImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$OnLoginRequestImpl(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as LoginModelRequest,
@@ -237,11 +381,12 @@ class _$OnLoginRequestImpl implements _OnLoginRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OnLoginRequestImpl &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   @JsonKey(ignore: true)
   @override
@@ -254,8 +399,10 @@ class _$OnLoginRequestImpl implements _OnLoginRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() onCheckLogin,
     required TResult Function(LoginModelRequest data) onLoginRequest,
     required TResult Function() onLoginResponse,
+    required TResult Function() onLogout,
   }) {
     return onLoginRequest(data);
   }
@@ -264,8 +411,10 @@ class _$OnLoginRequestImpl implements _OnLoginRequest {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function()? onCheckLogin,
     TResult? Function(LoginModelRequest data)? onLoginRequest,
     TResult? Function()? onLoginResponse,
+    TResult? Function()? onLogout,
   }) {
     return onLoginRequest?.call(data);
   }
@@ -274,8 +423,10 @@ class _$OnLoginRequestImpl implements _OnLoginRequest {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? onCheckLogin,
     TResult Function(LoginModelRequest data)? onLoginRequest,
     TResult Function()? onLoginResponse,
+    TResult Function()? onLogout,
     required TResult orElse(),
   }) {
     if (onLoginRequest != null) {
@@ -288,8 +439,10 @@ class _$OnLoginRequestImpl implements _OnLoginRequest {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_OnCheckLogin value) onCheckLogin,
     required TResult Function(_OnLoginRequest value) onLoginRequest,
     required TResult Function(_OnLoginResponse value) onLoginResponse,
+    required TResult Function(_OnLogout value) onLogout,
   }) {
     return onLoginRequest(this);
   }
@@ -298,8 +451,10 @@ class _$OnLoginRequestImpl implements _OnLoginRequest {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_OnCheckLogin value)? onCheckLogin,
     TResult? Function(_OnLoginRequest value)? onLoginRequest,
     TResult? Function(_OnLoginResponse value)? onLoginResponse,
+    TResult? Function(_OnLogout value)? onLogout,
   }) {
     return onLoginRequest?.call(this);
   }
@@ -308,8 +463,10 @@ class _$OnLoginRequestImpl implements _OnLoginRequest {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_OnCheckLogin value)? onCheckLogin,
     TResult Function(_OnLoginRequest value)? onLoginRequest,
     TResult Function(_OnLoginResponse value)? onLoginResponse,
+    TResult Function(_OnLogout value)? onLogout,
     required TResult orElse(),
   }) {
     if (onLoginRequest != null) {
@@ -368,8 +525,10 @@ class _$OnLoginResponseImpl implements _OnLoginResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() onCheckLogin,
     required TResult Function(LoginModelRequest data) onLoginRequest,
     required TResult Function() onLoginResponse,
+    required TResult Function() onLogout,
   }) {
     return onLoginResponse();
   }
@@ -378,8 +537,10 @@ class _$OnLoginResponseImpl implements _OnLoginResponse {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function()? onCheckLogin,
     TResult? Function(LoginModelRequest data)? onLoginRequest,
     TResult? Function()? onLoginResponse,
+    TResult? Function()? onLogout,
   }) {
     return onLoginResponse?.call();
   }
@@ -388,8 +549,10 @@ class _$OnLoginResponseImpl implements _OnLoginResponse {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? onCheckLogin,
     TResult Function(LoginModelRequest data)? onLoginRequest,
     TResult Function()? onLoginResponse,
+    TResult Function()? onLogout,
     required TResult orElse(),
   }) {
     if (onLoginResponse != null) {
@@ -402,8 +565,10 @@ class _$OnLoginResponseImpl implements _OnLoginResponse {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_OnCheckLogin value) onCheckLogin,
     required TResult Function(_OnLoginRequest value) onLoginRequest,
     required TResult Function(_OnLoginResponse value) onLoginResponse,
+    required TResult Function(_OnLogout value) onLogout,
   }) {
     return onLoginResponse(this);
   }
@@ -412,8 +577,10 @@ class _$OnLoginResponseImpl implements _OnLoginResponse {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_OnCheckLogin value)? onCheckLogin,
     TResult? Function(_OnLoginRequest value)? onLoginRequest,
     TResult? Function(_OnLoginResponse value)? onLoginResponse,
+    TResult? Function(_OnLogout value)? onLogout,
   }) {
     return onLoginResponse?.call(this);
   }
@@ -422,8 +589,10 @@ class _$OnLoginResponseImpl implements _OnLoginResponse {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_OnCheckLogin value)? onCheckLogin,
     TResult Function(_OnLoginRequest value)? onLoginRequest,
     TResult Function(_OnLoginResponse value)? onLoginResponse,
+    TResult Function(_OnLogout value)? onLogout,
     required TResult orElse(),
   }) {
     if (onLoginResponse != null) {
@@ -438,11 +607,134 @@ abstract class _OnLoginResponse implements LoginEvent {
 }
 
 /// @nodoc
+abstract class _$$OnLogoutImplCopyWith<$Res> {
+  factory _$$OnLogoutImplCopyWith(
+          _$OnLogoutImpl value, $Res Function(_$OnLogoutImpl) then) =
+      __$$OnLogoutImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$OnLogoutImplCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$OnLogoutImpl>
+    implements _$$OnLogoutImplCopyWith<$Res> {
+  __$$OnLogoutImplCopyWithImpl(
+      _$OnLogoutImpl _value, $Res Function(_$OnLogoutImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$OnLogoutImpl implements _OnLogout {
+  const _$OnLogoutImpl();
+
+  @override
+  String toString() {
+    return 'LoginEvent.onLogout()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$OnLogoutImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() onCheckLogin,
+    required TResult Function(LoginModelRequest data) onLoginRequest,
+    required TResult Function() onLoginResponse,
+    required TResult Function() onLogout,
+  }) {
+    return onLogout();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? onCheckLogin,
+    TResult? Function(LoginModelRequest data)? onLoginRequest,
+    TResult? Function()? onLoginResponse,
+    TResult? Function()? onLogout,
+  }) {
+    return onLogout?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? onCheckLogin,
+    TResult Function(LoginModelRequest data)? onLoginRequest,
+    TResult Function()? onLoginResponse,
+    TResult Function()? onLogout,
+    required TResult orElse(),
+  }) {
+    if (onLogout != null) {
+      return onLogout();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_OnCheckLogin value) onCheckLogin,
+    required TResult Function(_OnLoginRequest value) onLoginRequest,
+    required TResult Function(_OnLoginResponse value) onLoginResponse,
+    required TResult Function(_OnLogout value) onLogout,
+  }) {
+    return onLogout(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_OnCheckLogin value)? onCheckLogin,
+    TResult? Function(_OnLoginRequest value)? onLoginRequest,
+    TResult? Function(_OnLoginResponse value)? onLoginResponse,
+    TResult? Function(_OnLogout value)? onLogout,
+  }) {
+    return onLogout?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_OnCheckLogin value)? onCheckLogin,
+    TResult Function(_OnLoginRequest value)? onLoginRequest,
+    TResult Function(_OnLoginResponse value)? onLoginResponse,
+    TResult Function(_OnLogout value)? onLogout,
+    required TResult orElse(),
+  }) {
+    if (onLogout != null) {
+      return onLogout(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnLogout implements LoginEvent {
+  const factory _OnLogout() = _$OnLogoutImpl;
+}
+
+/// @nodoc
 mixin _$LoginState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String msg) isLoginChecking,
+    required TResult Function(String? msg) isLoginChecking,
+    required TResult Function(String? msg) isLoginLoading,
+    required TResult Function(String? msg) isLoginLoggedIn,
+    required TResult Function(String? msg) isLoginLoggedOut,
     required TResult Function(LoginModelResponse data) isLoginSuccess,
     required TResult Function(String msg) isLoginError,
   }) =>
@@ -450,7 +742,10 @@ mixin _$LoginState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String msg)? isLoginChecking,
+    TResult? Function(String? msg)? isLoginChecking,
+    TResult? Function(String? msg)? isLoginLoading,
+    TResult? Function(String? msg)? isLoginLoggedIn,
+    TResult? Function(String? msg)? isLoginLoggedOut,
     TResult? Function(LoginModelResponse data)? isLoginSuccess,
     TResult? Function(String msg)? isLoginError,
   }) =>
@@ -458,7 +753,10 @@ mixin _$LoginState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String msg)? isLoginChecking,
+    TResult Function(String? msg)? isLoginChecking,
+    TResult Function(String? msg)? isLoginLoading,
+    TResult Function(String? msg)? isLoginLoggedIn,
+    TResult Function(String? msg)? isLoginLoggedOut,
     TResult Function(LoginModelResponse data)? isLoginSuccess,
     TResult Function(String msg)? isLoginError,
     required TResult orElse(),
@@ -468,6 +766,9 @@ mixin _$LoginState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_IsLoginChecking value) isLoginChecking,
+    required TResult Function(_IsLoginLoading value) isLoginLoading,
+    required TResult Function(_IsLoginLoggedIn value) isLoginLoggedIn,
+    required TResult Function(_IsLoginLoggedOut value) isLoginLoggedOut,
     required TResult Function(_IsLoginSuccess value) isLoginSuccess,
     required TResult Function(_IsLoginError value) isLoginError,
   }) =>
@@ -476,6 +777,9 @@ mixin _$LoginState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_IsLoginChecking value)? isLoginChecking,
+    TResult? Function(_IsLoginLoading value)? isLoginLoading,
+    TResult? Function(_IsLoginLoggedIn value)? isLoginLoggedIn,
+    TResult? Function(_IsLoginLoggedOut value)? isLoginLoggedOut,
     TResult? Function(_IsLoginSuccess value)? isLoginSuccess,
     TResult? Function(_IsLoginError value)? isLoginError,
   }) =>
@@ -484,6 +788,9 @@ mixin _$LoginState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_IsLoginChecking value)? isLoginChecking,
+    TResult Function(_IsLoginLoading value)? isLoginLoading,
+    TResult Function(_IsLoginLoggedIn value)? isLoginLoggedIn,
+    TResult Function(_IsLoginLoggedOut value)? isLoginLoggedOut,
     TResult Function(_IsLoginSuccess value)? isLoginSuccess,
     TResult Function(_IsLoginError value)? isLoginError,
     required TResult orElse(),
@@ -548,7 +855,10 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String msg) isLoginChecking,
+    required TResult Function(String? msg) isLoginChecking,
+    required TResult Function(String? msg) isLoginLoading,
+    required TResult Function(String? msg) isLoginLoggedIn,
+    required TResult Function(String? msg) isLoginLoggedOut,
     required TResult Function(LoginModelResponse data) isLoginSuccess,
     required TResult Function(String msg) isLoginError,
   }) {
@@ -559,7 +869,10 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String msg)? isLoginChecking,
+    TResult? Function(String? msg)? isLoginChecking,
+    TResult? Function(String? msg)? isLoginLoading,
+    TResult? Function(String? msg)? isLoginLoggedIn,
+    TResult? Function(String? msg)? isLoginLoggedOut,
     TResult? Function(LoginModelResponse data)? isLoginSuccess,
     TResult? Function(String msg)? isLoginError,
   }) {
@@ -570,7 +883,10 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String msg)? isLoginChecking,
+    TResult Function(String? msg)? isLoginChecking,
+    TResult Function(String? msg)? isLoginLoading,
+    TResult Function(String? msg)? isLoginLoggedIn,
+    TResult Function(String? msg)? isLoginLoggedOut,
     TResult Function(LoginModelResponse data)? isLoginSuccess,
     TResult Function(String msg)? isLoginError,
     required TResult orElse(),
@@ -586,6 +902,9 @@ class _$InitialImpl implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_IsLoginChecking value) isLoginChecking,
+    required TResult Function(_IsLoginLoading value) isLoginLoading,
+    required TResult Function(_IsLoginLoggedIn value) isLoginLoggedIn,
+    required TResult Function(_IsLoginLoggedOut value) isLoginLoggedOut,
     required TResult Function(_IsLoginSuccess value) isLoginSuccess,
     required TResult Function(_IsLoginError value) isLoginError,
   }) {
@@ -597,6 +916,9 @@ class _$InitialImpl implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_IsLoginChecking value)? isLoginChecking,
+    TResult? Function(_IsLoginLoading value)? isLoginLoading,
+    TResult? Function(_IsLoginLoggedIn value)? isLoginLoggedIn,
+    TResult? Function(_IsLoginLoggedOut value)? isLoginLoggedOut,
     TResult? Function(_IsLoginSuccess value)? isLoginSuccess,
     TResult? Function(_IsLoginError value)? isLoginError,
   }) {
@@ -608,6 +930,9 @@ class _$InitialImpl implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_IsLoginChecking value)? isLoginChecking,
+    TResult Function(_IsLoginLoading value)? isLoginLoading,
+    TResult Function(_IsLoginLoggedIn value)? isLoginLoggedIn,
+    TResult Function(_IsLoginLoggedOut value)? isLoginLoggedOut,
     TResult Function(_IsLoginSuccess value)? isLoginSuccess,
     TResult Function(_IsLoginError value)? isLoginError,
     required TResult orElse(),
@@ -629,7 +954,7 @@ abstract class _$$IsLoginCheckingImplCopyWith<$Res> {
           $Res Function(_$IsLoginCheckingImpl) then) =
       __$$IsLoginCheckingImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String msg});
+  $Res call({String? msg});
 }
 
 /// @nodoc
@@ -643,13 +968,13 @@ class __$$IsLoginCheckingImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? msg = null,
+    Object? msg = freezed,
   }) {
     return _then(_$IsLoginCheckingImpl(
-      msg: null == msg
+      msg: freezed == msg
           ? _value.msg
           : msg // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -657,10 +982,10 @@ class __$$IsLoginCheckingImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$IsLoginCheckingImpl implements _IsLoginChecking {
-  const _$IsLoginCheckingImpl({required this.msg});
+  const _$IsLoginCheckingImpl({this.msg});
 
   @override
-  final String msg;
+  final String? msg;
 
   @override
   String toString() {
@@ -689,7 +1014,10 @@ class _$IsLoginCheckingImpl implements _IsLoginChecking {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String msg) isLoginChecking,
+    required TResult Function(String? msg) isLoginChecking,
+    required TResult Function(String? msg) isLoginLoading,
+    required TResult Function(String? msg) isLoginLoggedIn,
+    required TResult Function(String? msg) isLoginLoggedOut,
     required TResult Function(LoginModelResponse data) isLoginSuccess,
     required TResult Function(String msg) isLoginError,
   }) {
@@ -700,7 +1028,10 @@ class _$IsLoginCheckingImpl implements _IsLoginChecking {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String msg)? isLoginChecking,
+    TResult? Function(String? msg)? isLoginChecking,
+    TResult? Function(String? msg)? isLoginLoading,
+    TResult? Function(String? msg)? isLoginLoggedIn,
+    TResult? Function(String? msg)? isLoginLoggedOut,
     TResult? Function(LoginModelResponse data)? isLoginSuccess,
     TResult? Function(String msg)? isLoginError,
   }) {
@@ -711,7 +1042,10 @@ class _$IsLoginCheckingImpl implements _IsLoginChecking {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String msg)? isLoginChecking,
+    TResult Function(String? msg)? isLoginChecking,
+    TResult Function(String? msg)? isLoginLoading,
+    TResult Function(String? msg)? isLoginLoggedIn,
+    TResult Function(String? msg)? isLoginLoggedOut,
     TResult Function(LoginModelResponse data)? isLoginSuccess,
     TResult Function(String msg)? isLoginError,
     required TResult orElse(),
@@ -727,6 +1061,9 @@ class _$IsLoginCheckingImpl implements _IsLoginChecking {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_IsLoginChecking value) isLoginChecking,
+    required TResult Function(_IsLoginLoading value) isLoginLoading,
+    required TResult Function(_IsLoginLoggedIn value) isLoginLoggedIn,
+    required TResult Function(_IsLoginLoggedOut value) isLoginLoggedOut,
     required TResult Function(_IsLoginSuccess value) isLoginSuccess,
     required TResult Function(_IsLoginError value) isLoginError,
   }) {
@@ -738,6 +1075,9 @@ class _$IsLoginCheckingImpl implements _IsLoginChecking {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_IsLoginChecking value)? isLoginChecking,
+    TResult? Function(_IsLoginLoading value)? isLoginLoading,
+    TResult? Function(_IsLoginLoggedIn value)? isLoginLoggedIn,
+    TResult? Function(_IsLoginLoggedOut value)? isLoginLoggedOut,
     TResult? Function(_IsLoginSuccess value)? isLoginSuccess,
     TResult? Function(_IsLoginError value)? isLoginError,
   }) {
@@ -749,6 +1089,9 @@ class _$IsLoginCheckingImpl implements _IsLoginChecking {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_IsLoginChecking value)? isLoginChecking,
+    TResult Function(_IsLoginLoading value)? isLoginLoading,
+    TResult Function(_IsLoginLoggedIn value)? isLoginLoggedIn,
+    TResult Function(_IsLoginLoggedOut value)? isLoginLoggedOut,
     TResult Function(_IsLoginSuccess value)? isLoginSuccess,
     TResult Function(_IsLoginError value)? isLoginError,
     required TResult orElse(),
@@ -761,12 +1104,503 @@ class _$IsLoginCheckingImpl implements _IsLoginChecking {
 }
 
 abstract class _IsLoginChecking implements LoginState {
-  const factory _IsLoginChecking({required final String msg}) =
-      _$IsLoginCheckingImpl;
+  const factory _IsLoginChecking({final String? msg}) = _$IsLoginCheckingImpl;
 
-  String get msg;
+  String? get msg;
   @JsonKey(ignore: true)
   _$$IsLoginCheckingImplCopyWith<_$IsLoginCheckingImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$IsLoginLoadingImplCopyWith<$Res> {
+  factory _$$IsLoginLoadingImplCopyWith(_$IsLoginLoadingImpl value,
+          $Res Function(_$IsLoginLoadingImpl) then) =
+      __$$IsLoginLoadingImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? msg});
+}
+
+/// @nodoc
+class __$$IsLoginLoadingImplCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$IsLoginLoadingImpl>
+    implements _$$IsLoginLoadingImplCopyWith<$Res> {
+  __$$IsLoginLoadingImplCopyWithImpl(
+      _$IsLoginLoadingImpl _value, $Res Function(_$IsLoginLoadingImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? msg = freezed,
+  }) {
+    return _then(_$IsLoginLoadingImpl(
+      msg: freezed == msg
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$IsLoginLoadingImpl implements _IsLoginLoading {
+  const _$IsLoginLoadingImpl({this.msg});
+
+  @override
+  final String? msg;
+
+  @override
+  String toString() {
+    return 'LoginState.isLoginLoading(msg: $msg)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$IsLoginLoadingImpl &&
+            (identical(other.msg, msg) || other.msg == msg));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, msg);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$IsLoginLoadingImplCopyWith<_$IsLoginLoadingImpl> get copyWith =>
+      __$$IsLoginLoadingImplCopyWithImpl<_$IsLoginLoadingImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String? msg) isLoginChecking,
+    required TResult Function(String? msg) isLoginLoading,
+    required TResult Function(String? msg) isLoginLoggedIn,
+    required TResult Function(String? msg) isLoginLoggedOut,
+    required TResult Function(LoginModelResponse data) isLoginSuccess,
+    required TResult Function(String msg) isLoginError,
+  }) {
+    return isLoginLoading(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String? msg)? isLoginChecking,
+    TResult? Function(String? msg)? isLoginLoading,
+    TResult? Function(String? msg)? isLoginLoggedIn,
+    TResult? Function(String? msg)? isLoginLoggedOut,
+    TResult? Function(LoginModelResponse data)? isLoginSuccess,
+    TResult? Function(String msg)? isLoginError,
+  }) {
+    return isLoginLoading?.call(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String? msg)? isLoginChecking,
+    TResult Function(String? msg)? isLoginLoading,
+    TResult Function(String? msg)? isLoginLoggedIn,
+    TResult Function(String? msg)? isLoginLoggedOut,
+    TResult Function(LoginModelResponse data)? isLoginSuccess,
+    TResult Function(String msg)? isLoginError,
+    required TResult orElse(),
+  }) {
+    if (isLoginLoading != null) {
+      return isLoginLoading(msg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_IsLoginChecking value) isLoginChecking,
+    required TResult Function(_IsLoginLoading value) isLoginLoading,
+    required TResult Function(_IsLoginLoggedIn value) isLoginLoggedIn,
+    required TResult Function(_IsLoginLoggedOut value) isLoginLoggedOut,
+    required TResult Function(_IsLoginSuccess value) isLoginSuccess,
+    required TResult Function(_IsLoginError value) isLoginError,
+  }) {
+    return isLoginLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_IsLoginChecking value)? isLoginChecking,
+    TResult? Function(_IsLoginLoading value)? isLoginLoading,
+    TResult? Function(_IsLoginLoggedIn value)? isLoginLoggedIn,
+    TResult? Function(_IsLoginLoggedOut value)? isLoginLoggedOut,
+    TResult? Function(_IsLoginSuccess value)? isLoginSuccess,
+    TResult? Function(_IsLoginError value)? isLoginError,
+  }) {
+    return isLoginLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_IsLoginChecking value)? isLoginChecking,
+    TResult Function(_IsLoginLoading value)? isLoginLoading,
+    TResult Function(_IsLoginLoggedIn value)? isLoginLoggedIn,
+    TResult Function(_IsLoginLoggedOut value)? isLoginLoggedOut,
+    TResult Function(_IsLoginSuccess value)? isLoginSuccess,
+    TResult Function(_IsLoginError value)? isLoginError,
+    required TResult orElse(),
+  }) {
+    if (isLoginLoading != null) {
+      return isLoginLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _IsLoginLoading implements LoginState {
+  const factory _IsLoginLoading({final String? msg}) = _$IsLoginLoadingImpl;
+
+  String? get msg;
+  @JsonKey(ignore: true)
+  _$$IsLoginLoadingImplCopyWith<_$IsLoginLoadingImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$IsLoginLoggedInImplCopyWith<$Res> {
+  factory _$$IsLoginLoggedInImplCopyWith(_$IsLoginLoggedInImpl value,
+          $Res Function(_$IsLoginLoggedInImpl) then) =
+      __$$IsLoginLoggedInImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? msg});
+}
+
+/// @nodoc
+class __$$IsLoginLoggedInImplCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$IsLoginLoggedInImpl>
+    implements _$$IsLoginLoggedInImplCopyWith<$Res> {
+  __$$IsLoginLoggedInImplCopyWithImpl(
+      _$IsLoginLoggedInImpl _value, $Res Function(_$IsLoginLoggedInImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? msg = freezed,
+  }) {
+    return _then(_$IsLoginLoggedInImpl(
+      msg: freezed == msg
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$IsLoginLoggedInImpl implements _IsLoginLoggedIn {
+  const _$IsLoginLoggedInImpl({this.msg});
+
+  @override
+  final String? msg;
+
+  @override
+  String toString() {
+    return 'LoginState.isLoginLoggedIn(msg: $msg)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$IsLoginLoggedInImpl &&
+            (identical(other.msg, msg) || other.msg == msg));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, msg);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$IsLoginLoggedInImplCopyWith<_$IsLoginLoggedInImpl> get copyWith =>
+      __$$IsLoginLoggedInImplCopyWithImpl<_$IsLoginLoggedInImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String? msg) isLoginChecking,
+    required TResult Function(String? msg) isLoginLoading,
+    required TResult Function(String? msg) isLoginLoggedIn,
+    required TResult Function(String? msg) isLoginLoggedOut,
+    required TResult Function(LoginModelResponse data) isLoginSuccess,
+    required TResult Function(String msg) isLoginError,
+  }) {
+    return isLoginLoggedIn(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String? msg)? isLoginChecking,
+    TResult? Function(String? msg)? isLoginLoading,
+    TResult? Function(String? msg)? isLoginLoggedIn,
+    TResult? Function(String? msg)? isLoginLoggedOut,
+    TResult? Function(LoginModelResponse data)? isLoginSuccess,
+    TResult? Function(String msg)? isLoginError,
+  }) {
+    return isLoginLoggedIn?.call(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String? msg)? isLoginChecking,
+    TResult Function(String? msg)? isLoginLoading,
+    TResult Function(String? msg)? isLoginLoggedIn,
+    TResult Function(String? msg)? isLoginLoggedOut,
+    TResult Function(LoginModelResponse data)? isLoginSuccess,
+    TResult Function(String msg)? isLoginError,
+    required TResult orElse(),
+  }) {
+    if (isLoginLoggedIn != null) {
+      return isLoginLoggedIn(msg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_IsLoginChecking value) isLoginChecking,
+    required TResult Function(_IsLoginLoading value) isLoginLoading,
+    required TResult Function(_IsLoginLoggedIn value) isLoginLoggedIn,
+    required TResult Function(_IsLoginLoggedOut value) isLoginLoggedOut,
+    required TResult Function(_IsLoginSuccess value) isLoginSuccess,
+    required TResult Function(_IsLoginError value) isLoginError,
+  }) {
+    return isLoginLoggedIn(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_IsLoginChecking value)? isLoginChecking,
+    TResult? Function(_IsLoginLoading value)? isLoginLoading,
+    TResult? Function(_IsLoginLoggedIn value)? isLoginLoggedIn,
+    TResult? Function(_IsLoginLoggedOut value)? isLoginLoggedOut,
+    TResult? Function(_IsLoginSuccess value)? isLoginSuccess,
+    TResult? Function(_IsLoginError value)? isLoginError,
+  }) {
+    return isLoginLoggedIn?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_IsLoginChecking value)? isLoginChecking,
+    TResult Function(_IsLoginLoading value)? isLoginLoading,
+    TResult Function(_IsLoginLoggedIn value)? isLoginLoggedIn,
+    TResult Function(_IsLoginLoggedOut value)? isLoginLoggedOut,
+    TResult Function(_IsLoginSuccess value)? isLoginSuccess,
+    TResult Function(_IsLoginError value)? isLoginError,
+    required TResult orElse(),
+  }) {
+    if (isLoginLoggedIn != null) {
+      return isLoginLoggedIn(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _IsLoginLoggedIn implements LoginState {
+  const factory _IsLoginLoggedIn({final String? msg}) = _$IsLoginLoggedInImpl;
+
+  String? get msg;
+  @JsonKey(ignore: true)
+  _$$IsLoginLoggedInImplCopyWith<_$IsLoginLoggedInImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$IsLoginLoggedOutImplCopyWith<$Res> {
+  factory _$$IsLoginLoggedOutImplCopyWith(_$IsLoginLoggedOutImpl value,
+          $Res Function(_$IsLoginLoggedOutImpl) then) =
+      __$$IsLoginLoggedOutImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? msg});
+}
+
+/// @nodoc
+class __$$IsLoginLoggedOutImplCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$IsLoginLoggedOutImpl>
+    implements _$$IsLoginLoggedOutImplCopyWith<$Res> {
+  __$$IsLoginLoggedOutImplCopyWithImpl(_$IsLoginLoggedOutImpl _value,
+      $Res Function(_$IsLoginLoggedOutImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? msg = freezed,
+  }) {
+    return _then(_$IsLoginLoggedOutImpl(
+      msg: freezed == msg
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$IsLoginLoggedOutImpl implements _IsLoginLoggedOut {
+  const _$IsLoginLoggedOutImpl({this.msg});
+
+  @override
+  final String? msg;
+
+  @override
+  String toString() {
+    return 'LoginState.isLoginLoggedOut(msg: $msg)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$IsLoginLoggedOutImpl &&
+            (identical(other.msg, msg) || other.msg == msg));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, msg);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$IsLoginLoggedOutImplCopyWith<_$IsLoginLoggedOutImpl> get copyWith =>
+      __$$IsLoginLoggedOutImplCopyWithImpl<_$IsLoginLoggedOutImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String? msg) isLoginChecking,
+    required TResult Function(String? msg) isLoginLoading,
+    required TResult Function(String? msg) isLoginLoggedIn,
+    required TResult Function(String? msg) isLoginLoggedOut,
+    required TResult Function(LoginModelResponse data) isLoginSuccess,
+    required TResult Function(String msg) isLoginError,
+  }) {
+    return isLoginLoggedOut(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String? msg)? isLoginChecking,
+    TResult? Function(String? msg)? isLoginLoading,
+    TResult? Function(String? msg)? isLoginLoggedIn,
+    TResult? Function(String? msg)? isLoginLoggedOut,
+    TResult? Function(LoginModelResponse data)? isLoginSuccess,
+    TResult? Function(String msg)? isLoginError,
+  }) {
+    return isLoginLoggedOut?.call(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String? msg)? isLoginChecking,
+    TResult Function(String? msg)? isLoginLoading,
+    TResult Function(String? msg)? isLoginLoggedIn,
+    TResult Function(String? msg)? isLoginLoggedOut,
+    TResult Function(LoginModelResponse data)? isLoginSuccess,
+    TResult Function(String msg)? isLoginError,
+    required TResult orElse(),
+  }) {
+    if (isLoginLoggedOut != null) {
+      return isLoginLoggedOut(msg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_IsLoginChecking value) isLoginChecking,
+    required TResult Function(_IsLoginLoading value) isLoginLoading,
+    required TResult Function(_IsLoginLoggedIn value) isLoginLoggedIn,
+    required TResult Function(_IsLoginLoggedOut value) isLoginLoggedOut,
+    required TResult Function(_IsLoginSuccess value) isLoginSuccess,
+    required TResult Function(_IsLoginError value) isLoginError,
+  }) {
+    return isLoginLoggedOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_IsLoginChecking value)? isLoginChecking,
+    TResult? Function(_IsLoginLoading value)? isLoginLoading,
+    TResult? Function(_IsLoginLoggedIn value)? isLoginLoggedIn,
+    TResult? Function(_IsLoginLoggedOut value)? isLoginLoggedOut,
+    TResult? Function(_IsLoginSuccess value)? isLoginSuccess,
+    TResult? Function(_IsLoginError value)? isLoginError,
+  }) {
+    return isLoginLoggedOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_IsLoginChecking value)? isLoginChecking,
+    TResult Function(_IsLoginLoading value)? isLoginLoading,
+    TResult Function(_IsLoginLoggedIn value)? isLoginLoggedIn,
+    TResult Function(_IsLoginLoggedOut value)? isLoginLoggedOut,
+    TResult Function(_IsLoginSuccess value)? isLoginSuccess,
+    TResult Function(_IsLoginError value)? isLoginError,
+    required TResult orElse(),
+  }) {
+    if (isLoginLoggedOut != null) {
+      return isLoginLoggedOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _IsLoginLoggedOut implements LoginState {
+  const factory _IsLoginLoggedOut({final String? msg}) = _$IsLoginLoggedOutImpl;
+
+  String? get msg;
+  @JsonKey(ignore: true)
+  _$$IsLoginLoggedOutImplCopyWith<_$IsLoginLoggedOutImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -790,10 +1624,10 @@ class __$$IsLoginSuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$IsLoginSuccessImpl(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as LoginModelResponse,
@@ -819,11 +1653,12 @@ class _$IsLoginSuccessImpl implements _IsLoginSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$IsLoginSuccessImpl &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   @JsonKey(ignore: true)
   @override
@@ -836,7 +1671,10 @@ class _$IsLoginSuccessImpl implements _IsLoginSuccess {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String msg) isLoginChecking,
+    required TResult Function(String? msg) isLoginChecking,
+    required TResult Function(String? msg) isLoginLoading,
+    required TResult Function(String? msg) isLoginLoggedIn,
+    required TResult Function(String? msg) isLoginLoggedOut,
     required TResult Function(LoginModelResponse data) isLoginSuccess,
     required TResult Function(String msg) isLoginError,
   }) {
@@ -847,7 +1685,10 @@ class _$IsLoginSuccessImpl implements _IsLoginSuccess {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String msg)? isLoginChecking,
+    TResult? Function(String? msg)? isLoginChecking,
+    TResult? Function(String? msg)? isLoginLoading,
+    TResult? Function(String? msg)? isLoginLoggedIn,
+    TResult? Function(String? msg)? isLoginLoggedOut,
     TResult? Function(LoginModelResponse data)? isLoginSuccess,
     TResult? Function(String msg)? isLoginError,
   }) {
@@ -858,7 +1699,10 @@ class _$IsLoginSuccessImpl implements _IsLoginSuccess {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String msg)? isLoginChecking,
+    TResult Function(String? msg)? isLoginChecking,
+    TResult Function(String? msg)? isLoginLoading,
+    TResult Function(String? msg)? isLoginLoggedIn,
+    TResult Function(String? msg)? isLoginLoggedOut,
     TResult Function(LoginModelResponse data)? isLoginSuccess,
     TResult Function(String msg)? isLoginError,
     required TResult orElse(),
@@ -874,6 +1718,9 @@ class _$IsLoginSuccessImpl implements _IsLoginSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_IsLoginChecking value) isLoginChecking,
+    required TResult Function(_IsLoginLoading value) isLoginLoading,
+    required TResult Function(_IsLoginLoggedIn value) isLoginLoggedIn,
+    required TResult Function(_IsLoginLoggedOut value) isLoginLoggedOut,
     required TResult Function(_IsLoginSuccess value) isLoginSuccess,
     required TResult Function(_IsLoginError value) isLoginError,
   }) {
@@ -885,6 +1732,9 @@ class _$IsLoginSuccessImpl implements _IsLoginSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_IsLoginChecking value)? isLoginChecking,
+    TResult? Function(_IsLoginLoading value)? isLoginLoading,
+    TResult? Function(_IsLoginLoggedIn value)? isLoginLoggedIn,
+    TResult? Function(_IsLoginLoggedOut value)? isLoginLoggedOut,
     TResult? Function(_IsLoginSuccess value)? isLoginSuccess,
     TResult? Function(_IsLoginError value)? isLoginError,
   }) {
@@ -896,6 +1746,9 @@ class _$IsLoginSuccessImpl implements _IsLoginSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_IsLoginChecking value)? isLoginChecking,
+    TResult Function(_IsLoginLoading value)? isLoginLoading,
+    TResult Function(_IsLoginLoggedIn value)? isLoginLoggedIn,
+    TResult Function(_IsLoginLoggedOut value)? isLoginLoggedOut,
     TResult Function(_IsLoginSuccess value)? isLoginSuccess,
     TResult Function(_IsLoginError value)? isLoginError,
     required TResult orElse(),
@@ -982,7 +1835,10 @@ class _$IsLoginErrorImpl implements _IsLoginError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String msg) isLoginChecking,
+    required TResult Function(String? msg) isLoginChecking,
+    required TResult Function(String? msg) isLoginLoading,
+    required TResult Function(String? msg) isLoginLoggedIn,
+    required TResult Function(String? msg) isLoginLoggedOut,
     required TResult Function(LoginModelResponse data) isLoginSuccess,
     required TResult Function(String msg) isLoginError,
   }) {
@@ -993,7 +1849,10 @@ class _$IsLoginErrorImpl implements _IsLoginError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String msg)? isLoginChecking,
+    TResult? Function(String? msg)? isLoginChecking,
+    TResult? Function(String? msg)? isLoginLoading,
+    TResult? Function(String? msg)? isLoginLoggedIn,
+    TResult? Function(String? msg)? isLoginLoggedOut,
     TResult? Function(LoginModelResponse data)? isLoginSuccess,
     TResult? Function(String msg)? isLoginError,
   }) {
@@ -1004,7 +1863,10 @@ class _$IsLoginErrorImpl implements _IsLoginError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String msg)? isLoginChecking,
+    TResult Function(String? msg)? isLoginChecking,
+    TResult Function(String? msg)? isLoginLoading,
+    TResult Function(String? msg)? isLoginLoggedIn,
+    TResult Function(String? msg)? isLoginLoggedOut,
     TResult Function(LoginModelResponse data)? isLoginSuccess,
     TResult Function(String msg)? isLoginError,
     required TResult orElse(),
@@ -1020,6 +1882,9 @@ class _$IsLoginErrorImpl implements _IsLoginError {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_IsLoginChecking value) isLoginChecking,
+    required TResult Function(_IsLoginLoading value) isLoginLoading,
+    required TResult Function(_IsLoginLoggedIn value) isLoginLoggedIn,
+    required TResult Function(_IsLoginLoggedOut value) isLoginLoggedOut,
     required TResult Function(_IsLoginSuccess value) isLoginSuccess,
     required TResult Function(_IsLoginError value) isLoginError,
   }) {
@@ -1031,6 +1896,9 @@ class _$IsLoginErrorImpl implements _IsLoginError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_IsLoginChecking value)? isLoginChecking,
+    TResult? Function(_IsLoginLoading value)? isLoginLoading,
+    TResult? Function(_IsLoginLoggedIn value)? isLoginLoggedIn,
+    TResult? Function(_IsLoginLoggedOut value)? isLoginLoggedOut,
     TResult? Function(_IsLoginSuccess value)? isLoginSuccess,
     TResult? Function(_IsLoginError value)? isLoginError,
   }) {
@@ -1042,6 +1910,9 @@ class _$IsLoginErrorImpl implements _IsLoginError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_IsLoginChecking value)? isLoginChecking,
+    TResult Function(_IsLoginLoading value)? isLoginLoading,
+    TResult Function(_IsLoginLoggedIn value)? isLoginLoggedIn,
+    TResult Function(_IsLoginLoggedOut value)? isLoginLoggedOut,
     TResult Function(_IsLoginSuccess value)? isLoginSuccess,
     TResult Function(_IsLoginError value)? isLoginError,
     required TResult orElse(),

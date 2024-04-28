@@ -9,20 +9,20 @@ part 'announcement_state.dart';
 part 'announcement_bloc.freezed.dart';
 
 class AnnouncementBloc extends Bloc<AnnouncementEvent, AnnouncementState> {
-  final AnnouncementRepository _announcementRepository = AnnouncementRepository();
+  // final AnnouncementRepository _announcementRepository = AnnouncementRepository();
 
   AnnouncementBloc() : super(_Initial()) {
     on<_OnGetAnnouncement>((event, emit) async {
-      try {
-        emit(const AnnouncementState.loading(msg: "Loading Get Data Announcement"));
+      // try {
+      //   emit(const AnnouncementState.loading(msg: "Loading Get Data Announcement"));
 
-        final _result = await _announcementRepository.getAnnouncement();
+      //   final _result = await _announcementRepository.getAnnouncement();
 
-        _result.fold((l) => emit(AnnouncementState.error(msg: l)),
-            (r) => emit(AnnouncementState.success(data: r)));
-      } catch (e) {
-        emit(AnnouncementState.error(msg: e.toString()));
-      }
+      //   _result.fold((l) => emit(AnnouncementState.error(msg: l)),
+      //       (r) => emit(AnnouncementState.success(data: r)));
+      // } catch (e) {
+      //   emit(AnnouncementState.error(msg: e.toString()));
+      // }
     });
 
     on<_OnSearchAnnouncement>((event, emit) async {

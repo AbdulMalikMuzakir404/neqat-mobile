@@ -12,12 +12,14 @@ import './maps/presentation/bloc/maps/maps_bloc.dart';
 import './maps/presentation/bloc/maps_api/bloc/maps_api_bloc.dart';
 import './profile/presentation/page/profile_page.dart';
 import './login/presentation/bloc/login/login_bloc.dart';
-import './login/presentation/bloc/login_hive/login_hive_bloc.dart';
 import './announcement/presentation/bloc/announcement_bloc.dart';
 import './ranking/presentation/bloc/ranking_bloc.dart';
 import './ranking/ranking_detail/presentation/page/ranking_detail_page.dart';
 import './announcement/announcement_detail/presentation/page/announcement_detail_page.dart';
 import './history/history_detail/presentation/page/history_detail_page.dart';
+
+import '../injection_container.dart';
+import 'login/presentation/bloc/login_hive/login_hive_bloc.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -35,11 +37,11 @@ class AppWidget extends StatelessWidget {
           lazy: false,
         ),
         BlocProvider(
-          create: (context) => LoginBloc(),
+          create: (context) => sl<LoginBloc>(),
           lazy: false,
         ),
         BlocProvider(
-          create: (context) => LoginHiveBloc(),
+          create: (context) => sl<LoginHiveBloc>(),
           lazy: false,
         ),
         BlocProvider(
@@ -91,7 +93,7 @@ class AppWidget extends StatelessWidget {
               page: () => RankingDetailPage(),
               transition: GetX.Transition.circularReveal),
         ],
-        initialRoute: "/splashscreen",
+        initialRoute: "/loginpage",
       ),
     );
   }

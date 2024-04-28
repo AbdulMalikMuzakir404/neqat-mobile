@@ -232,10 +232,10 @@ class __$$OnSaveLoginDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$OnSaveLoginDataImpl(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as LoginModelResponse,
@@ -261,11 +261,12 @@ class _$OnSaveLoginDataImpl implements _OnSaveLoginData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OnSaveLoginDataImpl &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   @JsonKey(ignore: true)
   @override
@@ -730,7 +731,7 @@ mixin _$LoginHiveState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String msg) loading,
+    required TResult Function(String? msg) loading,
     required TResult Function() loggedIn,
     required TResult Function() notLoggedIn,
     required TResult Function(LoginModelResponse data) loginHiveLoaded,
@@ -740,7 +741,7 @@ mixin _$LoginHiveState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String msg)? loading,
+    TResult? Function(String? msg)? loading,
     TResult? Function()? loggedIn,
     TResult? Function()? notLoggedIn,
     TResult? Function(LoginModelResponse data)? loginHiveLoaded,
@@ -750,7 +751,7 @@ mixin _$LoginHiveState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String msg)? loading,
+    TResult Function(String? msg)? loading,
     TResult Function()? loggedIn,
     TResult Function()? notLoggedIn,
     TResult Function(LoginModelResponse data)? loginHiveLoaded,
@@ -848,7 +849,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String msg) loading,
+    required TResult Function(String? msg) loading,
     required TResult Function() loggedIn,
     required TResult Function() notLoggedIn,
     required TResult Function(LoginModelResponse data) loginHiveLoaded,
@@ -861,7 +862,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String msg)? loading,
+    TResult? Function(String? msg)? loading,
     TResult? Function()? loggedIn,
     TResult? Function()? notLoggedIn,
     TResult? Function(LoginModelResponse data)? loginHiveLoaded,
@@ -874,7 +875,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String msg)? loading,
+    TResult Function(String? msg)? loading,
     TResult Function()? loggedIn,
     TResult Function()? notLoggedIn,
     TResult Function(LoginModelResponse data)? loginHiveLoaded,
@@ -941,7 +942,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
           _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
       __$$LoadingImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String msg});
+  $Res call({String? msg});
 }
 
 /// @nodoc
@@ -955,13 +956,13 @@ class __$$LoadingImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? msg = null,
+    Object? msg = freezed,
   }) {
     return _then(_$LoadingImpl(
-      msg: null == msg
+      msg: freezed == msg
           ? _value.msg
           : msg // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -969,10 +970,10 @@ class __$$LoadingImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadingImpl implements _Loading {
-  const _$LoadingImpl({required this.msg});
+  const _$LoadingImpl({this.msg});
 
   @override
-  final String msg;
+  final String? msg;
 
   @override
   String toString() {
@@ -1000,7 +1001,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String msg) loading,
+    required TResult Function(String? msg) loading,
     required TResult Function() loggedIn,
     required TResult Function() notLoggedIn,
     required TResult Function(LoginModelResponse data) loginHiveLoaded,
@@ -1013,7 +1014,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String msg)? loading,
+    TResult? Function(String? msg)? loading,
     TResult? Function()? loggedIn,
     TResult? Function()? notLoggedIn,
     TResult? Function(LoginModelResponse data)? loginHiveLoaded,
@@ -1026,7 +1027,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String msg)? loading,
+    TResult Function(String? msg)? loading,
     TResult Function()? loggedIn,
     TResult Function()? notLoggedIn,
     TResult Function(LoginModelResponse data)? loginHiveLoaded,
@@ -1084,9 +1085,9 @@ class _$LoadingImpl implements _Loading {
 }
 
 abstract class _Loading implements LoginHiveState {
-  const factory _Loading({required final String msg}) = _$LoadingImpl;
+  const factory _Loading({final String? msg}) = _$LoadingImpl;
 
-  String get msg;
+  String? get msg;
   @JsonKey(ignore: true)
   _$$LoadingImplCopyWith<_$LoadingImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1131,7 +1132,7 @@ class _$LoggedInImpl implements _LoggedIn {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String msg) loading,
+    required TResult Function(String? msg) loading,
     required TResult Function() loggedIn,
     required TResult Function() notLoggedIn,
     required TResult Function(LoginModelResponse data) loginHiveLoaded,
@@ -1144,7 +1145,7 @@ class _$LoggedInImpl implements _LoggedIn {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String msg)? loading,
+    TResult? Function(String? msg)? loading,
     TResult? Function()? loggedIn,
     TResult? Function()? notLoggedIn,
     TResult? Function(LoginModelResponse data)? loginHiveLoaded,
@@ -1157,7 +1158,7 @@ class _$LoggedInImpl implements _LoggedIn {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String msg)? loading,
+    TResult Function(String? msg)? loading,
     TResult Function()? loggedIn,
     TResult Function()? notLoggedIn,
     TResult Function(LoginModelResponse data)? loginHiveLoaded,
@@ -1257,7 +1258,7 @@ class _$NotLoggedInImpl implements _NotLoggedIn {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String msg) loading,
+    required TResult Function(String? msg) loading,
     required TResult Function() loggedIn,
     required TResult Function() notLoggedIn,
     required TResult Function(LoginModelResponse data) loginHiveLoaded,
@@ -1270,7 +1271,7 @@ class _$NotLoggedInImpl implements _NotLoggedIn {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String msg)? loading,
+    TResult? Function(String? msg)? loading,
     TResult? Function()? loggedIn,
     TResult? Function()? notLoggedIn,
     TResult? Function(LoginModelResponse data)? loginHiveLoaded,
@@ -1283,7 +1284,7 @@ class _$NotLoggedInImpl implements _NotLoggedIn {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String msg)? loading,
+    TResult Function(String? msg)? loading,
     TResult Function()? loggedIn,
     TResult Function()? notLoggedIn,
     TResult Function(LoginModelResponse data)? loginHiveLoaded,
@@ -1364,10 +1365,10 @@ class __$$LoginHiveLoadedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$LoginHiveLoadedImpl(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as LoginModelResponse,
@@ -1393,11 +1394,12 @@ class _$LoginHiveLoadedImpl implements _LoginHiveLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoginHiveLoadedImpl &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   @JsonKey(ignore: true)
   @override
@@ -1410,7 +1412,7 @@ class _$LoginHiveLoadedImpl implements _LoginHiveLoaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String msg) loading,
+    required TResult Function(String? msg) loading,
     required TResult Function() loggedIn,
     required TResult Function() notLoggedIn,
     required TResult Function(LoginModelResponse data) loginHiveLoaded,
@@ -1423,7 +1425,7 @@ class _$LoginHiveLoadedImpl implements _LoginHiveLoaded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String msg)? loading,
+    TResult? Function(String? msg)? loading,
     TResult? Function()? loggedIn,
     TResult? Function()? notLoggedIn,
     TResult? Function(LoginModelResponse data)? loginHiveLoaded,
@@ -1436,7 +1438,7 @@ class _$LoginHiveLoadedImpl implements _LoginHiveLoaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String msg)? loading,
+    TResult Function(String? msg)? loading,
     TResult Function()? loggedIn,
     TResult Function()? notLoggedIn,
     TResult Function(LoginModelResponse data)? loginHiveLoaded,
@@ -1569,7 +1571,7 @@ class _$LoginHiveErrorImpl implements _LoginHiveError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String msg) loading,
+    required TResult Function(String? msg) loading,
     required TResult Function() loggedIn,
     required TResult Function() notLoggedIn,
     required TResult Function(LoginModelResponse data) loginHiveLoaded,
@@ -1582,7 +1584,7 @@ class _$LoginHiveErrorImpl implements _LoginHiveError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String msg)? loading,
+    TResult? Function(String? msg)? loading,
     TResult? Function()? loggedIn,
     TResult? Function()? notLoggedIn,
     TResult? Function(LoginModelResponse data)? loginHiveLoaded,
@@ -1595,7 +1597,7 @@ class _$LoginHiveErrorImpl implements _LoginHiveError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String msg)? loading,
+    TResult Function(String? msg)? loading,
     TResult Function()? loggedIn,
     TResult Function()? notLoggedIn,
     TResult Function(LoginModelResponse data)? loginHiveLoaded,

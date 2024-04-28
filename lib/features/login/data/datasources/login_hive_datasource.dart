@@ -2,9 +2,24 @@ import 'package:dartz/dartz.dart';
 import 'package:hive/hive.dart';
 import 'package:neqat_mobile/core/utils/constant.dart';
 
-import '../models/login_model_response.dart';
+import '../models/login_model.dart';
 
-class LoginHiveRepository {
+abstract class LoginHiveDataSource {
+  // CHECK LOGIN STATUS
+  Future<bool> loginCheckingStatus();
+
+  // SAVE LOGIN DATA
+  Future<void> saveLoginData(LoginModelResponse loginModelResponse);
+
+  // READ LOGIN DATA
+  Future<Either<String, LoginModelResponse>> readLoginData();
+
+  // DELETE LOGIN DATA
+  Future<Either<String, bool>> deleteLoginData();
+}
+
+class LoginHiveDataSourceImpl implements LoginHiveDataSource {
+  @override
   Future<bool> loginCheckingStatus() async {
     try {
       final box = await Hive.openBox<LoginModelResponse>(boxCachedDataUser);
@@ -15,20 +30,21 @@ class LoginHiveRepository {
     }
   }
 
-  Future<Either<String, LoginModelResponse>> saveLoginData(
-      {required LoginModelResponse loginModelResponse}) async {
+  @override
+  Future<void> saveLoginData(LoginModelResponse loginModelResponse) async {
     try {
       final dynamic box;
 
       box = await Hive.openBox<LoginModelResponse>(boxCachedDataUser);
       await box.put(boxKeyCacheDataUser, loginModelResponse);
 
-      return right(box);
+      return box;
     } catch (e) {
-      return left(e.toString());
+      throw Exception("Error checking login status");
     }
   }
 
+  @override
   Future<Either<String, LoginModelResponse>> readLoginData() async {
     try {
       final dynamic box, userData;
@@ -42,6 +58,7 @@ class LoginHiveRepository {
     }
   }
 
+  @override
   Future<Either<String, bool>> deleteLoginData() async {
     try {
       final dynamic box;

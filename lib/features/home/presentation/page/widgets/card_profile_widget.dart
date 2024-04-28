@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:neqat_mobile/core/widgets/shimmer_widget.dart';
 
 import '../../../../../core/widgets/loading_widget.dart';
+import '../../../../login/data/models/login_model.dart';
 import '../../../../login/presentation/bloc/login_hive/login_hive_bloc.dart';
 
 class CardProfileWidget extends StatefulWidget {
@@ -53,9 +54,7 @@ class _CardProfileWidgetState extends State<CardProfileWidget> {
           },
           loginHiveLoaded: (v) {
             return CardProfile(
-              data: v.data.data!.toJson(),
-              user: v.data.data!.user!.toJson(),
-              classroom: v.data.data!.classroom?.toJson(),
+              data: v.data
             );
           },
         );
@@ -68,11 +67,9 @@ class CardProfile extends StatefulWidget {
   const CardProfile({
     super.key,
     required this.data,
-    required this.user,
-    required this.classroom,
   });
 
-  final dynamic data, user, classroom;
+  final LoginModelResponse data;
 
   @override
   State<CardProfile> createState() => _CardProfileState();
@@ -115,7 +112,7 @@ class _CardProfileState extends State<CardProfile> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       image: DecorationImage(
-                        image: (widget.data['gender'] == 'pria')
+                        image: (widget.data.data.gender == 'pria')
                             ? const AssetImage(
                                 'assets/images/img-avatar-male.jpg')
                             : const AssetImage(
@@ -132,7 +129,7 @@ class _CardProfileState extends State<CardProfile> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            widget.user['name'],
+                            widget.data.data.user.username!,
                             overflow: TextOverflow.visible,
                             maxLines: 1,
                             style: const TextStyle(
@@ -142,7 +139,7 @@ class _CardProfileState extends State<CardProfile> {
                             ),
                           ),
                           Text(
-                            widget.classroom['major'],
+                            widget.data.data.classroom.major!,
                             overflow: TextOverflow.visible,
                             maxLines: 1,
                             style: TextStyle(
@@ -151,7 +148,7 @@ class _CardProfileState extends State<CardProfile> {
                             ),
                           ),
                           Text(
-                            widget.data['nis'],
+                            widget.data.data.nis!,
                             overflow: TextOverflow.visible,
                             maxLines: 1,
                             style: TextStyle(
@@ -160,7 +157,7 @@ class _CardProfileState extends State<CardProfile> {
                             ),
                           ),
                           Text(
-                            widget.data['gender'],
+                            widget.data.data.gender!,
                             overflow: TextOverflow.visible,
                             maxLines: 1,
                             style: TextStyle(

@@ -1,61 +1,59 @@
-import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
-import 'package:neqat_mobile/features/login/data/models/login_model_response.dart';
-import 'package:neqat_mobile/features/login/data/repositories/login_hive_repository.dart';
+// import 'package:dartz/dartz.dart';
+// import 'package:dio/dio.dart';
 
-import '../../../../core/utils/constant.dart';
-import '../models/maps_api_model_response.dart';
+// import '../../../../core/utils/constant.dart';
+// import '../../../login/data/datasources/login_hive_datasource.dart';
+// import '../models/maps_api_model_response.dart';
 
-class MapsApiRepository {
-  Dio _dio = Dio();
+// class MapsApiRepository {
+//   Dio dio = Dio();
 
-  Future<Either<String, MapsApiModelResponse>> getMapsApi() async {
-    try {
-      Response _response;
-      LoginHiveRepository _loginHiveRepository = LoginHiveRepository();
-      final MapsApiModelResponse _mapsApiModelResponse;
+//   Future<Either<String, MapsApiModelResponse>> getMapsApi() async {
+//     try {
+//       Response response;
+//       LoginHiveDataSource loginHiveDataSource = LoginHiveDataSource();
+//       final MapsApiModelResponse mapsApiModelResponse;
 
-      final data = await _loginHiveRepository.readLoginData();
+//       final data = await loginHiveDataSource.readLoginData();
 
-      final String _token =
-          data.getOrElse(() => LoginModelResponse()).token.toString();
+//       String token = data.fold((l) => "", (r) => r.token!);
 
-      final _mapsApiOption = Options(
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-          "Authorization": "Bearer " + _token
-        },
-      );
+//       final _mapsApiOption = Options(
+//         headers: {
+//           "Content-Type": "application/json",
+//           "Accept": "application/json",
+//           "Authorization": "Bearer $token"
+//         },
+//       );
 
-      _response = await _dio.get("${baseUrl}setting", options: _mapsApiOption);
+//       response = await dio.get("${baseUrl}setting", options: _mapsApiOption);
 
-      _mapsApiModelResponse = MapsApiModelResponse.fromJson(_response.data);
+//       mapsApiModelResponse = MapsApiModelResponse.fromJson(response.data);
 
-      return right(_mapsApiModelResponse);
-    } on DioException catch (e) {
-      String errorMessage;
-      switch (e.type) {
-        case DioExceptionType.sendTimeout:
-          errorMessage = "Connection timeout occurred";
-          break;
-        case DioExceptionType.receiveTimeout:
-          errorMessage = "Receive timeout occurred";
-          break;
-        case DioExceptionType.badResponse:
-          errorMessage = e.response!.data['message'];
-          break;
-        case DioExceptionType.cancel:
-          errorMessage = "Request cancelled";
-          break;
-        default:
-          errorMessage = "An error occurred: ${e.message}";
-          break;
-      }
+//       return right(mapsApiModelResponse);
+//     } on DioException catch (e) {
+//       String errorMessage;
+//       switch (e.type) {
+//         case DioExceptionType.sendTimeout:
+//           errorMessage = "Connection timeout occurred";
+//           break;
+//         case DioExceptionType.receiveTimeout:
+//           errorMessage = "Receive timeout occurred";
+//           break;
+//         case DioExceptionType.badResponse:
+//           errorMessage = e.response!.data['message'];
+//           break;
+//         case DioExceptionType.cancel:
+//           errorMessage = "Request cancelled";
+//           break;
+//         default:
+//           errorMessage = "An error occurred: ${e.message}";
+//           break;
+//       }
 
-      return left(errorMessage);
-    } catch (e) {
-      return left(e.toString());
-    }
-  }
-}
+//       return left(errorMessage);
+//     } catch (e) {
+//       return left(e.toString());
+//     }
+//   }
+// }

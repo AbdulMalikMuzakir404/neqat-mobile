@@ -18,7 +18,7 @@ int year = DateTime.now().year;
 int staticYear = 2024;
 
 // url
-const String baseUrl = "https://7558-103-129-95-103.ngrok-free.app/api/";
+const String baseUrl = "https://b30c-114-5-208-42.ngrok-free.app/api/";
 
 // hive key
 const String boxCachedDataUser = "BOX_CACHED_DATA_USER";

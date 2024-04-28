@@ -11,9 +11,11 @@ import 'package:neqat_mobile/firebase_options.dart';
 import 'package:path_provider/path_provider.dart' as pathProvider;
 
 import './features/app_widget.dart';
-import './features/login/data/models/login_model_response.dart';
 import './core/notification/push_notification.dart';
 import './core/utils/constant.dart';
+import 'features/login/data/models/login_model.dart';
+
+import 'injection_container.dart' as di;
 
 // function to lisen to background changes
 PushNotifications pushNotifications = PushNotifications();
@@ -22,6 +24,9 @@ Future _firebaseBackgroundMessage(RemoteMessage message) async {
 }
 
 Future<void> main() async {
+  // initializing dependency injection
+  await di.init();
+  
   // Inisialisasi pengikatan layanan Flutter
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -67,7 +72,7 @@ Future<void> main() async {
       await FirebaseMessaging.instance.getInitialMessage();
 
   if (message != null) {
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       FlutterAppBadger.removeBadge();
     });
   }
@@ -84,10 +89,10 @@ Future<void> main() async {
   // HIVE REGISTER
   // ============================================================
   // user hive register
-  Hive.registerAdapter(LoginModelResponseAdapter());
-  Hive.registerAdapter(DataAdapter());
-  Hive.registerAdapter(UserAdapter());
-  Hive.registerAdapter(ClassroomAdapter());
+  Hive.registerAdapter(LoginModelResponseImplAdapter());
+  Hive.registerAdapter(loginModelResponseStudentImplAdapter());
+  Hive.registerAdapter(LoginModelResponseUserImplAdapter());
+  Hive.registerAdapter(LoginModelResponseClassroomImplAdapter());
 
 
   // formating date

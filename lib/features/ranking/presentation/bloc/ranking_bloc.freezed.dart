@@ -326,6 +326,7 @@ mixin _$RankingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String? msg) initialLoading,
     required TResult Function(String? msg) loading,
     required TResult Function(String msg) error,
     required TResult Function(RankingModelResponse data, bool isMax) success,
@@ -334,6 +335,7 @@ mixin _$RankingState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(String? msg)? initialLoading,
     TResult? Function(String? msg)? loading,
     TResult? Function(String msg)? error,
     TResult? Function(RankingModelResponse data, bool isMax)? success,
@@ -342,6 +344,7 @@ mixin _$RankingState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String? msg)? initialLoading,
     TResult Function(String? msg)? loading,
     TResult Function(String msg)? error,
     TResult Function(RankingModelResponse data, bool isMax)? success,
@@ -351,6 +354,7 @@ mixin _$RankingState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_InitialLoading value) initialLoading,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
@@ -359,6 +363,7 @@ mixin _$RankingState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_InitialLoading value)? initialLoading,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
@@ -367,6 +372,7 @@ mixin _$RankingState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_InitialLoading value)? initialLoading,
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
@@ -432,6 +438,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String? msg) initialLoading,
     required TResult Function(String? msg) loading,
     required TResult Function(String msg) error,
     required TResult Function(RankingModelResponse data, bool isMax) success,
@@ -443,6 +450,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(String? msg)? initialLoading,
     TResult? Function(String? msg)? loading,
     TResult? Function(String msg)? error,
     TResult? Function(RankingModelResponse data, bool isMax)? success,
@@ -454,6 +462,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String? msg)? initialLoading,
     TResult Function(String? msg)? loading,
     TResult Function(String msg)? error,
     TResult Function(RankingModelResponse data, bool isMax)? success,
@@ -469,6 +478,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_InitialLoading value) initialLoading,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
@@ -480,6 +490,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_InitialLoading value)? initialLoading,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
@@ -491,6 +502,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_InitialLoading value)? initialLoading,
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
@@ -505,6 +517,158 @@ class _$InitialImpl implements _Initial {
 
 abstract class _Initial implements RankingState {
   const factory _Initial() = _$InitialImpl;
+}
+
+/// @nodoc
+abstract class _$$InitialLoadingImplCopyWith<$Res> {
+  factory _$$InitialLoadingImplCopyWith(_$InitialLoadingImpl value,
+          $Res Function(_$InitialLoadingImpl) then) =
+      __$$InitialLoadingImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? msg});
+}
+
+/// @nodoc
+class __$$InitialLoadingImplCopyWithImpl<$Res>
+    extends _$RankingStateCopyWithImpl<$Res, _$InitialLoadingImpl>
+    implements _$$InitialLoadingImplCopyWith<$Res> {
+  __$$InitialLoadingImplCopyWithImpl(
+      _$InitialLoadingImpl _value, $Res Function(_$InitialLoadingImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? msg = freezed,
+  }) {
+    return _then(_$InitialLoadingImpl(
+      msg: freezed == msg
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InitialLoadingImpl implements _InitialLoading {
+  const _$InitialLoadingImpl({this.msg});
+
+  @override
+  final String? msg;
+
+  @override
+  String toString() {
+    return 'RankingState.initialLoading(msg: $msg)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InitialLoadingImpl &&
+            (identical(other.msg, msg) || other.msg == msg));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, msg);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InitialLoadingImplCopyWith<_$InitialLoadingImpl> get copyWith =>
+      __$$InitialLoadingImplCopyWithImpl<_$InitialLoadingImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String? msg) initialLoading,
+    required TResult Function(String? msg) loading,
+    required TResult Function(String msg) error,
+    required TResult Function(RankingModelResponse data, bool isMax) success,
+  }) {
+    return initialLoading(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String? msg)? initialLoading,
+    TResult? Function(String? msg)? loading,
+    TResult? Function(String msg)? error,
+    TResult? Function(RankingModelResponse data, bool isMax)? success,
+  }) {
+    return initialLoading?.call(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String? msg)? initialLoading,
+    TResult Function(String? msg)? loading,
+    TResult Function(String msg)? error,
+    TResult Function(RankingModelResponse data, bool isMax)? success,
+    required TResult orElse(),
+  }) {
+    if (initialLoading != null) {
+      return initialLoading(msg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_InitialLoading value) initialLoading,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Success value) success,
+  }) {
+    return initialLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_InitialLoading value)? initialLoading,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Success value)? success,
+  }) {
+    return initialLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_InitialLoading value)? initialLoading,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
+    TResult Function(_Success value)? success,
+    required TResult orElse(),
+  }) {
+    if (initialLoading != null) {
+      return initialLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InitialLoading implements RankingState {
+  const factory _InitialLoading({final String? msg}) = _$InitialLoadingImpl;
+
+  String? get msg;
+  @JsonKey(ignore: true)
+  _$$InitialLoadingImplCopyWith<_$InitialLoadingImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -572,6 +736,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String? msg) initialLoading,
     required TResult Function(String? msg) loading,
     required TResult Function(String msg) error,
     required TResult Function(RankingModelResponse data, bool isMax) success,
@@ -583,6 +748,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(String? msg)? initialLoading,
     TResult? Function(String? msg)? loading,
     TResult? Function(String msg)? error,
     TResult? Function(RankingModelResponse data, bool isMax)? success,
@@ -594,6 +760,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String? msg)? initialLoading,
     TResult Function(String? msg)? loading,
     TResult Function(String msg)? error,
     TResult Function(RankingModelResponse data, bool isMax)? success,
@@ -609,6 +776,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_InitialLoading value) initialLoading,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
@@ -620,6 +788,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_InitialLoading value)? initialLoading,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
@@ -631,6 +800,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_InitialLoading value)? initialLoading,
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
@@ -717,6 +887,7 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String? msg) initialLoading,
     required TResult Function(String? msg) loading,
     required TResult Function(String msg) error,
     required TResult Function(RankingModelResponse data, bool isMax) success,
@@ -728,6 +899,7 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(String? msg)? initialLoading,
     TResult? Function(String? msg)? loading,
     TResult? Function(String msg)? error,
     TResult? Function(RankingModelResponse data, bool isMax)? success,
@@ -739,6 +911,7 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String? msg)? initialLoading,
     TResult Function(String? msg)? loading,
     TResult Function(String msg)? error,
     TResult Function(RankingModelResponse data, bool isMax)? success,
@@ -754,6 +927,7 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_InitialLoading value) initialLoading,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
@@ -765,6 +939,7 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_InitialLoading value)? initialLoading,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
@@ -776,6 +951,7 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_InitialLoading value)? initialLoading,
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
@@ -870,6 +1046,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String? msg) initialLoading,
     required TResult Function(String? msg) loading,
     required TResult Function(String msg) error,
     required TResult Function(RankingModelResponse data, bool isMax) success,
@@ -881,6 +1058,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function(String? msg)? initialLoading,
     TResult? Function(String? msg)? loading,
     TResult? Function(String msg)? error,
     TResult? Function(RankingModelResponse data, bool isMax)? success,
@@ -892,6 +1070,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String? msg)? initialLoading,
     TResult Function(String? msg)? loading,
     TResult Function(String msg)? error,
     TResult Function(RankingModelResponse data, bool isMax)? success,
@@ -907,6 +1086,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_InitialLoading value) initialLoading,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
@@ -918,6 +1098,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_InitialLoading value)? initialLoading,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
@@ -929,6 +1110,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_InitialLoading value)? initialLoading,
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
